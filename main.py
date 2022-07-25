@@ -106,7 +106,6 @@ def forget2():
     cursor.execute('SELECT * FROM login WHERE email=%s ', [session['email']])
     pro = cursor.fetchone()
     if request.method == 'POST':
-        # email = request.form['email']
         password = request.form['password']
         confirm_password = request.form['confirm_password']
         if confirm_password != password:
@@ -174,7 +173,6 @@ def change_password():
     cursor.execute('SELECT * FROM login WHERE email=%s ', [session['email']])
     pro = cursor.fetchone()
     if request.method == 'POST':
-        # email = request.form['email']
         password = request.form['password']
         confirm_password = request.form['confirm_password']
         if confirm_password != password:
