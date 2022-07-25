@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en" class="h-100">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>All_document</title>
+		<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/icon.css')}}">
+		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/main.css')}}">
+		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
+		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/form.css')}}">
+		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/popup.css')}}">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" />
+		<link rel="shortcut icon" href="{{ url_for('static', filename='images/babu.jpg') }}">
+
+
+		<style>
+			.close {
+				color: #aaaaaa;
+				float: right;
+				font-size: 28px;
+				font-weight: bold;
+			}
+
+			.close:hover,
+			.close:focus {
+				color: #000;
+				text-decoration: none;
+				cursor: pointer;
+			}
+
+			.modal-content {
+				background-color: #fff;
+				margin: auto;
+				padding: 10px;
+				border: 3px solid rgb(51, 90, 218);
+				border-radius: 10px;
+				width: 50%;
+			}
+
+		</style>
+
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<body class="overlay-scrollbar">
+		<!-- ############  nav_sidemodal ############# -->
+		{% include 'Nav_sidemodal.html' %}
+		<!-- ############ End  nav_sidemodal ############# -->
+
+		<div class="wrapper">
+
+			<div class="head-title">
+				<div class="left">
+					<h1>Payment</h1>
+				</div>
+				<div class="left">
+					<button type="button" class="btn_One"><i class='bx bxs-plus-circle' style="color: white;"></i>Log Payment</button>
+					<button type="button" class="btn_One"><i class='bx bxs-up-arrow' style="color: white;"></i>Other Action</button>
+				</div>
+			</div>
+			<ul class="box-info">
+				<li>
+
+					<span class="text">
+						<p>Total Receivable</p>
+						<h3>1020</h3>
+					</span>
+				</li>
+				<li>
+
+					<span class="text">
+						<p>Total Payable</p>
+						<h3>2834</h3>
+					</span>
+				</li>
+				<a href="" style="text-decoration: none;">
+
+					<li>
+
+						<span class="text">
+							<p>Overdue Receivable</p>
+							<h3>2834</h3>
+						</span>
+					</li>
+				</a>
+				<a href="" style="text-decoration: none;">
+					<li>
+
+						<span class="text">
+							<p>Overdue Payable</p>
+							<h3>2834</h3>
+						</span>
+					</li>
+				</a>
+			</ul>
+			<h1 class="heading" style="color: blue;">Document</h1>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Company</th>
+						<th>Document type</th>
+						<th>Document No</th>
+						<th>Document Date</th>
+						<th>Payment Due Date</th>
+						<th>Amount to pay</th>
+						<th>Amount paid</th>
+						<th>Amount set off</th>
+						<th>Balance Amount</th>
+						<th>Comment</th>
+						<th>Last Modified At</th>
+						<!-- <th>Download</th> -->
+
+					</tr>
+				</thead>
+				<tbody id="myTable">
+
+					<tr class="body_table">
+						<td data-label="Item Id">PAYMENT</td>
+						<td data-label="Item Name">PAYMENT</td>
+						<td data-label="Item Catagory">PAYMENT</td>
+						<td data-label="Current Stock">PAYMENT</td>
+						<td data-label="Unit">PAYMENT</td>
+						<td data-label="Price">PAYMENT</td>
+						<td data-label="Item Type">PAYMENT</td>
+						<td data-label="Tax">PAYMENT</td>
+						<td data-label="Min Stock Level">PAYMENT</td>
+						<td data-label="Max Stock Level">PAYMENT</td>
+						<td data-label="Country-Party Code">PAYMENT</td>
+						<!-- <td data-label="Delete"><a href="#"><i style="color: blue;" class='fas fa-download'></i></a></td> -->
+
+					</tr>
+
+
+				</tbody>
+			</table>
+		</div>
+		</div>
+	</body>
+
+
+	<script>
+		$(document).ready(function () {
+			$("#myInput").on("keyup", function () {
+				var value = $(this).val().toLowerCase();
+				$("#myTable tr").filter(function () {
+					$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+				});
+			});
+		});
+	</script>
+
+
+	<script src="{{url_for('static',filename='js/script2.js')}}"></script>
+
+</html>

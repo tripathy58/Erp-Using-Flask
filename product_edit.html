@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en" class="h-100">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Employee Details</title>
+<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/icon.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/main.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/form.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/popup.css')}}">
+<link rel="shortcut icon" href="{{ url_for('static', filename='images/babu.jpg') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css"/>
+
+
+<style>
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modal-content {
+       background-color: #fff;
+       margin: auto;
+       padding: 10px;
+       border: 3px solid rgb(51, 90, 218);
+       border-radius: 10px;
+       width: 50%;
+   }
+.search{
+	height: 30px;
+	width: 12%;
+	border: 3px solid blue;
+	border-radius: 5px;
+	margin-right: 10px;
+	/* margin-bottom: -180px; */
+}
+.details{
+	color: blue;
+	font-weight: 800;
+}
+.inp{
+	border: 2px solid blue;
+}
+	</style>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<body class="overlay-scrollbar">
+	<!-- ############  nav_sidemodal ############# -->
+	   {% include 'Nav_sidemodal.html' %}
+		<!-- ############ End  nav_sidemodal ############# -->
+
+	<div class="wrapper">
+
+		<div class="head-title">
+			<div class="left">
+			</div>
+		</div>
+<!-- ------------------------------------Update Stock Modal--------------------------------------- -->
+			<div>
+			  <div class="modal-content">
+				<center><h3>Edit Item Details</h3></center>
+			   <div class="table-responsive">
+				<div class="content">
+					<form action="" method="post">
+						{% for row in table %}
+						<div class="user-details">
+							<div class="input-box">
+								<span class="details">Item Id *</span>
+								<input name="item_id" class="inp" type="text" value="{{row.item_id}}"   required readonly>
+							</div>
+							<div class="input-box">
+								<span class="details">Item Name</span>
+								<input  name="item_name" class="inp" type="text" value="{{row.item_name}}"   required readonly>
+							</div>
+							<div class="input-box">
+								<span class="details">Item Catagory</span>
+								<input name="item_cata" class="inp" type="text" value="{{row.item_cata}}"  required readonly>
+							</div>
+							<div class="input-box">
+								<span class="details">Current Stock</span>
+								<input name="current_stock" class="inp" type="text" value="{{row.current_stock}}"  required >
+							</div>
+							<div class="input-box">
+								<span class="details">Price</span>
+								<input name="price" class="inp" type="text" value="{{row.price}}"  required >
+							</div>
+							<div class="input-box">
+								<span class="details">Item Type</span>
+								<input name="item_type" class="inp" type="text" value="{{row.item_type}}" required >
+							</div>
+							<div class="input-box">
+								<span class="details">Min Stock Level</span>
+								<input name="min_stock" class="inp" type="text" value="{{row.min_stock}}"  required >
+							</div>
+							<div class="input-box">
+								<span class="details">Max Stock Level</span>
+								<input name="max_stock" class="inp" type="text" value="{{row.max_stock}}"  required>
+							</div>
+							<div class="input-box">
+								<span class="details">Country-Party Code</span>
+								<input name="c_party_code" class="inp" type="text" value="{{row.c_party_code}}"  required readonly>
+							</div>
+							<div class="input-box">
+								<span class="details">Added On</span>
+								<input name="added_on" class="inp" type="date" value="{{row.added_on}}"  required readonly>
+							</div>
+							<div class="input-box">
+								<span class="details">Dispatch On</span>
+								<input name="dispatch_on" class="inp" type="date" value="{{row.dispatch_on}}"  required>
+							</div>
+							<div class="input-box">
+								<span class="details">Tax</span>
+								<input name="tax" class="inp" type="text" value="{{row.tax}}"  required>
+							</div>
+							<div class="input-box">
+								<span class="details">Unit</span>
+								<select name="unit" class="inp" value="{{row.unit}}" required>
+									<option>kg</option>
+									<option>Meter</option>
+									<option>Per Piece</option>
+				
+								</select>
+							</div>
+						</div>
+						<div class="button">
+							<input type="submit" value="Add Item" onload="return confirm(' Item Added Successfully. You can view this item in Inventory Section.')">
+						</div>
+					</form>
+					{% endfor %}
+				</div>
+			</div>
+			  </div>
+			</div>
+				  <!-- #################   end update stock modal table ################# -->
+
+<script src="{{url_for('static',filename='js/script2.js')}}"></script>
+</html>

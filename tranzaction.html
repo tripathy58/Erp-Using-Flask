@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en" class="h-100">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>All_document</title>
+		<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/icon.css')}}">
+		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/main.css')}}">
+		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
+		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/form.css')}}">
+		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/popup.css')}}">
+		<link rel="shortcut icon" href="{{ url_for('static', filename='images/babu.jpg') }}">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" />
+
+
+		<style>
+			.close {
+				color: #aaaaaa;
+				float: right;
+				font-size: 28px;
+				font-weight: bold;
+			}
+
+			.close:hover,
+			.close:focus {
+				color: #000;
+				text-decoration: none;
+				cursor: pointer;
+			}
+
+			.modal-content {
+				background-color: #fff;
+				margin: auto;
+				padding: 10px;
+				border: 3px solid rgb(51, 90, 218);
+				border-radius: 10px;
+				width: 50%;
+			}
+
+			ul li{
+				list-style: none;
+				color: #fff;
+			}
+
+		</style>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<body class="overlay-scrollbar">
+		<!-- ############  nav_sidemodal ############# -->
+		{% include 'Nav_sidemodal.html' %}
+		<!-- ############ End  nav_sidemodal ############# -->
+
+		<div class="wrapper">
+
+			<div class="head-title">
+				<div class="left">
+					<h1>TRANSACTION</h1>
+				</div>
+				<details>
+					<summary><i class="fa fa-plus" aria-hidden="true" style="color: white;"></i>&nbsp;<span style="color: #fff;">CREATE DOCUMENT</span></summary>
+					<ul class="adityas">
+						<li class="divine"><a href="{{url_for('POrder')}}" style="text-decoration: none; color: #fff;">Purchase Order</a></li>
+						<li class="divine">Orader Confirmation</li>
+						<li class="divine">Invoice</li>
+						<li class="divine">Adhoc Invoice</li>						
+					</ul>
+				</details>
+			</div>
+			<ul class="box-info">
+				<li >
+					<i class='bx bxs-group' ></i>
+					<span class="text">
+						<h3>1020</h3>
+						<p>Stock Value</p>
+					</span>
+				</li>
+				<li>
+					<i class='bx bxs-group' ></i>
+					<span class="text">
+						<h3>2834</h3>
+						<p>Low Stock</p>
+					</span>
+				</li>
+				<a href="" style="text-decoration: none;">
+	
+				<li>
+					<i class='bx bxs-group' ></i>
+					<span class="text">
+						<h3>2834</h3>
+						<p>Excess Stock</p>
+					</span>
+				</li>
+				</a>
+				<a href="" style="text-decoration: none;">
+				<li>
+					<i class='bx bxs-bar-chart-alt-2' ></i>
+					<span class="text">
+						<h3>2834</h3>
+						<p>View Dashboard</p>
+					</span>
+				</li>
+				</a>
+			</ul>
+			<h1 class="heading" style="color: blue;">TRANSACTION</h1>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>SUPPLIER NAME </th>
+						<th>BUYER NAME </th>
+						<th>DOCUMENT NAME</th>
+						<th>GOOD STATUS</th>
+						<th>LAST MODIFIED DATE</th>
+						<th>VIEW</th>
+						<!-- <th>DOWNLOAD</th> -->
+
+					</tr>
+				</thead>
+				<tbody id="myTable">
+						{% for row in doc %}
+					<tr class="body_table">
+						<td data-label="Item Id">{{row.sup_name}}</td>
+						<td data-label="Item Name">{{row.buyer_name}}</td>
+						<td data-label="Item Catagory">{{row.buyer_name}}</td>
+						<td data-label="Current Stock">GOOD STATUS</td>
+						<td data-label="Unit">{{row.pridoc_date}}</td>
+						<td data-label="Delete"><a href="/view/{{row.id}}" ><i  class="fa fa-eye" aria-hidden="true"></i></a></td>
+						<!-- <td data-label="Delete"><a href="/bill/{{row.id}}"><i  class='fas fa-download'></i></a></td> -->
+
+					</tr>
+						{% endfor %}
+
+				</tbody>
+			</table>
+		</div>
+		</div>
+	</body>
+
+
+	<script>
+		$(document).ready(function () {
+			$("#myInput").on("keyup", function () {
+				var value = $(this).val().toLowerCase();
+				$("#myTable tr").filter(function () {
+					$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+				});
+			});
+		});
+	</script>
+
+
+	<script src="{{url_for('static',filename='js/script2.js')}}"></script>
+
+</html>

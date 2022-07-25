@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en" class="h-100">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Erp</title>
+<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/icon.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/main.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/POrder.css')}}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="shortcut icon" href="{{ url_for('static', filename='images/babu.jpg') }}">s
+
+
+<body class="overlay-scrollbar">
+	<!-- ############  nav_sidemodal ############# -->
+	{% include 'Nav_sidemodal.html' %}
+	<!-- ############ End  nav_sidemodal ############# -->
+    
+	<div class="wrapper">
+		<div class="total">
+			<div class="four">
+				<div class="f1">
+					<form action="#" method="post">
+					<p><b>Buyer Details</b></p>
+					<div class="f41">
+						<div class="fc">
+							<label >Name<span style="color: #f00;">*</span></label><br>
+							<input type="text" name="buyer_name" >
+						</div>
+						<div class="fc">
+							<label >Address<span style="color: #f00;">*</span></label><br>
+							<input type="text" name="buyer_address" >
+						</div>
+						<div class="fc">
+							<label >Email<span style="color: #f00;">*</span></label><br>
+							<input type="email" name="buyer_email" >
+						</div>
+						
+						<div>
+							<label >Phone<span style="color: #f00;">*</span></label><br>
+							<input type="number" name="buyer_phone" >
+						
+						</div>
+						<div>
+							<label >GST<span style="color: #f00;">*</span></label><br>
+							<input type="text" name="buyer_gstin" >
+						</div>
+						<div>
+							<label >State<span style="color: #f00;">*</span></label><br>
+							<input type="text" name="buyer_state" >
+						</div>
+						<div>
+							<label >Country<span style="color: #f00;">*</span></label><br>
+							<input type="text" name="buyer_country" >
+						</div>
+					</div>
+				</div>
+				<div class="f2">
+					<p><b>Delivery Location</b></p>
+					<div class="f41">
+						<div class="fc">
+							<label >Name<span style="color: #f00;">*</span></label><br>
+							<input type="text" name="del_name" >
+						</div>
+						<div class="fc">
+							<label >Address<span style="color: #f00;">*</span></label><br>
+							<input type="text" name="del_address" >
+						</div>
+						<div class="fc">
+							<label >Pin<span style="color: #f00;">*</span></label><br>
+							<input type="number" name="del_pin">
+						</div>
+						<div class="fc">
+							<label >City<span style="color: #f00;">*</span></label><br>
+							<input type="text" name="del_city" >
+						</div>
+						<div>
+							<label >State<span style="color: #f00;">*</span></label><br>
+							<input type="text" name="del_state" >
+							
+						</div>
+						<div>
+							<label >Country<span style="color: #f00;">*</span></label><br>
+							<input type="text" name="del_country" >
+						</div>
+					</div>
+				</div>
+				<div class="f3">
+					<p><b>Supplier Details</b></p>
+					<div class="f41">
+						<div class="fc">
+							<label >Name<span style="color: #f00;">*</span></label><br>
+							<input type="text" name="sup_name" >
+						</div>
+						<div class="fc">
+							<label >Address<span style="color: #f00;">*</span></label><br>
+							<input type="text" name="sup_address">
+						</div>
+						<div class="fc">
+							<label >Email<span style="color: #f00;">*</span></label><br>
+							<input type="email" name="sup_email" >
+						</div>
+					
+						<div>
+							<label >Phone<span style="color: #f00;">*</span></label><br>
+							<input type="text" name="sup_phone">
+					
+						</div>
+						<div>
+							<label >GST<span style="color: #f00;">*</span></label><br>
+							<input type="text" name="sup_gstin" >
+						</div>
+						<div>
+							<label >State<span style="color: #f00;">*</span></label><br>
+							<input type="text" name="sup_state" >
+						</div>
+						<div>
+							<label >Country<span style="color: #f00;">*</span></label><br>
+							<input type="text" name="sup_country">
+						</div>
+					</div>
+				</div>
+				<div class="f4">
+					<p><b>Place Of Supply</b></p>
+					<div class="f41">
+						<div class="fc">
+							<label >Name<span style="color: #f00;">*</span></label><br>
+							<input type="text" name="ps_name" >
+						</div>
+						<div class="fc">
+							<label >Address<span style="color: #f00;">*</span></label><br>
+							<input type="text" name="ps_address" >
+						</div>
+						<div class="fc">
+							<label >Email<span style="color: #f00;">*</span></label><br>
+							<input type="email" name="ps_email" >
+						</div>
+					
+						<div>
+							<label >Phone<span style="color: #f00;">*</span></label><br>
+							<input type="number" name="ps_phone" >
+					
+						</div>
+						<div>
+							<label >GST<span style="color: #f00;">*</span></label><br>
+							<input type="text" name="ps_gstin">
+						</div>
+						<div>
+							<label >State<span style="color: #f00;">*</span></label><br>
+							<input type="text" name="ps_state" >
+						</div>
+						<div>
+							<label >Country<span style="color: #f00;">*</span></label><br>
+							<input type="text" name="ps_country" >
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="one">
+				<p><b>Primary Document Details</b></p>
+				<div class="o1">
+					<div>
+						<label >Title<span style="color: #f00;">*</span></label><br>
+						<input type="text" name="pridoc_title" >
+					</div>
+					<div>
+						<label >Document Number<span style="color: #f00;">*</span></label><br>
+						<input type="number" name="pridoc_docno" >
+					</div>
+					<div>
+						<label >Document Date<span style="color: #f00;">*</span></label><br>
+						<input type="date" name="pridoc_date" >
+					</div>
+					<div>
+						<label >Amendment<span style="color: #f00;">*</span></label><br>
+						<input type="text" name="pridoc_amendment" >
+					</div>
+					<div>
+						<label >Delivery Date<span style="color: #f00;">*</span></label><br>
+						<input type="date" name="pridoc_deliverydate" >
+					</div>
+					<div>
+						<label >Store<span style="color: #f00;">*</span></label><br>
+						<select name="pridoc_store" id="">
+							<option value="">1</option>
+							<option value="">2</option>
+							<option value="">3</option>
+							<option value="">4</option>
+							<option value="">5</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="fullone">
+				<div class="sch">
+					<input type="search" id="search" placeholder="Search with ID or Desc..">
+				</div>
+				<div class="tbl">
+					<table>
+						<tr class="tr1">
+							<th style="width: 2%;"></th>
+							<th style="width: 18%;">Item Id</th>
+							<th style="width: 20%;">Item Description</th>
+							<th style="width: 10%;">HSN/SAC Code</th>
+							<th style="width: 10%;">Quanity</th>
+							<th style="width: 10%;">Units</th>
+							<th style="width: 10%;">Price</th>
+							<th style="width: 10%;">Tax</th>
+							<!-- <th style="width: 10%;">Total Before Tax</th> -->
+						</tr>
+						<tr>
+							<td><b>1.</b></td>
+							<td>
+								<input type="text" name="item_id" >
+
+							</td>
+							<td>
+								<input type="text" name="item_desc" >
+
+							</td>
+							<td>
+								<input type="text" name="hsn_code" >
+							</td>
+							<td>
+								<input type="text" name="quantity">
+							</td>
+							<td>
+								<input type="text" name="unit" >
+
+							</td>
+							<td>
+								<input type="text" name="price" >
+
+							</td>
+							<td>
+								<input type="text" name="tax" >
+
+							</td>
+							
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="bttn">
+				<button type="submit"><i class="fas fa-plus"></i> Add Item</button>
+			</div>
+
+		</form>
+		
+			<!-- <div class="paybill">
+				<hr>
+				<table>
+					<tr>
+						<td style="width: 50%;">Total (before tax) :</td>
+						<td style="width: 50%;">₹0.00</td>
+					</tr>
+					<tr>
+						<td>Total Tax :</td>
+						<td>₹0.00</td>
+					</tr>
+					<tr>
+						<td>Total (after tax) :</td>
+						<td>₹0.00</td>
+					</tr>
+					<tr>
+						<td style="font-size: 20px;">Grand Total :</td>
+						<td style="font-size: 20px;">₹0.00</td>
+					</tr>
+					<tr>
+						<td>Advance To Pay :</td>
+						<td><input type="text"></td>
+					</tr>
+				</table>
+				<button id="btns">SAVE</button>
+			</div> -->
+		</div>
+	</div>
+	</body>
+	<script src="{{url_for('static',filename='js/script2.js')}}"></script>
+	
+	</html>

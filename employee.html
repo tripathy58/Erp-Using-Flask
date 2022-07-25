@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en" class="h-100">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Employee Details</title>
+<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/icon.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/main.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/form.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/popup.css')}}">
+<link rel="shortcut icon" href="{{ url_for('static', filename='images/babu.jpg') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css"/>
+
+
+<style>
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modal-content {
+       background-color: #fff;
+       margin: auto;
+       padding: 10px;
+       border: 3px solid rgb(51, 90, 218);
+       border-radius: 10px;
+       width: 50%;
+   }
+.search{
+	height: 30px;
+	width: 12%;
+	border: 3px solid blue;
+	border-radius: 5px;
+	margin-right: 10px;
+	/* margin-bottom: -180px; */
+}
+.btn_One{
+	margin-bottom: 8px;
+}
+	</style>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<body class="overlay-scrollbar">
+	<!-- ############  nav_sidemodal ############# -->
+	   {% include 'Nav_sidemodal.html' %}
+		<!-- ############ End  nav_sidemodal ############# -->
+
+	<div class="wrapper">
+
+		<div class="head-title">
+			<div class="left">
+				<h1>Employee Details</h1>
+			</div>
+			<!-- <a onclick="document.getElementById('id02').style.display='block'" class="btn-download">
+				<i class='bx bxs-cloud-download' ></i>
+				<span class="btn-download">Upload Item</span>
+			</a> -->
+		</div>
+		<ul class="box-info">
+			<li style="background-color: rgb(217, 230, 235);">
+				<!-- <i class='bx bxs-stock' ></i> -->
+				<span class="text">
+					<h3><i style="color: blue;" class="fas fa-rupee"></i> &nbsp; {{salary['total_salary']}} </h3>
+					<p style="font-weight: 800;">Monthly Salary Of All Employees</p>
+				</span>
+			</li>
+			<li style="background-color: rgb(217, 230, 235);">
+				<!-- <i class='bx bxs-group' ></i> -->
+				<span class="text">
+					<h3>534</h3>
+					<p style="font-weight: 800;">Total Employee </p>
+				</span>
+			</li>
+			<a href="" style="text-decoration: none;">
+
+			<li style="background-color: rgb(217, 230, 235);">
+				<!-- <i class='bx bxs-group' ></i> -->
+				<span class="text">
+					<h3>134</h3>
+					<p style="font-weight: 800;">Employee In Sales</p>
+				</span>
+			</li>
+			</a>
+			<a href="" style="text-decoration: none;">
+			<li style="background-color: rgb(217, 230, 235);">
+				<i class='bx bxs-bar-chart-alt-2' ></i>
+				<span class="text">
+					<h3>-------</h3>
+					<p style="font-weight: 800;">Employee In Admin</p>
+				</span>
+			</li>
+			</a>
+		</ul>
+		<div class="head-title">
+			<div class="left">
+				<button type="button" class="btn_One"  id="myBtnn"><i class='bx bxs-plus-circle' style="color: white;"></i>Add Employee</button>
+				<!-- <button type="button" class="btn_One" onclick="document.getElementById('id01').style.display='block'"><i class='bx bxs-up-arrow' style="color: white;"></i>Update Employee Details</button> -->
+			</div>
+
+
+
+ <!-- #################    add stock modal table #################
+<-- The Modal -->
+<div id="myModals" class="modal">
+ <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+<div class="content">
+	<form action="" method="post">
+		<div class="user-details">
+			<div class="input-box">
+				<span class="details">Employee Name *</span>
+				<input name="name" type="text" placeholder="Employee Name" >
+			</div>
+			<div class="input-box">
+				<span class="details">Employee Address</span>
+				<input  name="address" type="text" placeholder="Employee Adress" >
+			</div>
+			<div class="input-box">
+				<span class="details">Employee Phone Number</span>
+				<input name="phone" type="number" placeholder="Employee Phone No" >
+			</div>
+			<div class="input-box">
+				<span class="details">Employee Emergency Contact No</span>
+				<input name="emergency_phone" type="number" placeholder="Emergency Contact" >
+			</div>
+			<div class="input-box">
+				<span class="details">Date Of Birth</span>
+				<input name="dob" type="date" placeholder="D.O.B" >
+			</div>
+			<div class="input-box">
+				<span class="details">Job Title</span>
+				<input name="job_title" type="text" placeholder="Job Title" >
+			</div>
+			<div class="input-box">
+				<span class="details">Manager's Name</span>
+				<input name="manager_name" type="text" placeholder="Manager's Name">
+			</div>
+			<div class="input-box">
+				<span class="details">Department</span>
+				<select name="department">
+                    <option>Sales</option>
+                    <option>Production</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+
+                </select>
+			</div>
+			<div class="input-box">
+				<span class="details">Hired Date</span>
+				<input name="hired_date" type="date" placeholder="Country-Party Code">
+			</div>
+			<div class="input-box">
+				<span class="details">Current Salary</span>
+				<input name="salary" type="number" placeholder="Current Salary">
+			</div>
+            <div class="input-box">
+				<span class="details">Qualification</span>
+				<input name="qualification" type="text" placeholder="Qualification">
+			</div>
+			<div class="input-box">
+				<span class="details">Employee Status</span>
+				<select name="status">
+					<option>Full-Time</option>
+					<option>Part-Time</option>
+					<option>Contract</option>
+
+				</select>
+			</div>
+		</div>
+		<div class="button">
+			<input type="submit" value="Add Employee" onclick="return confirm('Employee Added Successfully.')">
+		</div>
+	</form>
+</div>
+</div>
+</div>
+      <!-- #################   end add stock modal table ################# -->
+		
+
+<!-- ##################### add stock script ################# -->
+<script>
+var modal = document.getElementById("myModals");
+var btn = document.getElementById("myBtnn");
+var span = document.getElementsByClassName("close")[1]; 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+span.onclick = function() {
+  modal.style.display = "none";
+}
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+ <!-- #####################  End  stock script ################# -->
+				<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search By Employee Name.." class="search" title="Type in a name">
+		</div>
+			<!-- <h1 class="heading" style="color: blue;"></h1> -->
+			<table class="table">
+			  	<thead>
+					<tr>
+						<th>Employee Name</th>
+						<th>Employee Address</th>
+						<th>Phone Number</th>
+						<th>Emergency Contact No</th>
+						<th>D.O.B</th>
+						<th>Job Title</th>
+						<th>Managers Name</th>
+						<th>Department</th>
+						<th>Hired Date</th>
+						<th>Current Salary</th>
+						<th>Qualification</th>
+						<th>status</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+					  
+					</tr>
+				</thead>
+				<tbody id="myTable">
+					{% for row in employee %}
+					<tr class="body_table">
+					  <td >{{row.name}}</td>
+					  <td >{{row.address}}</td>
+					  <td >{{row.phone}}</td>
+					  <td >{{row.emergency_phone}}</td>
+					  <td >{{row.dob}}</td>
+					  <td >{{row.job_title}}</td>
+					  <td >{{row.manager_name}}</td>
+					  <td >{{row.department}}</td>
+					  <td >{{row.hired_date}}</td>
+					  <td >{{row.salary}}</td>
+					  <td >{{row.qualification}}</td>
+                      <td >{{row.status}}</td>
+                      <td ><a href="/employee_edit/{{row.id}}"  onclick="return confirm('Are you sure You want to Edit {{row.name}}`s Details ?')"><i  class="fas fa-edit"></i></a></td>
+					  <td ><a href="/employee_delete/{{row.id}}" onclick="return confirm('Are you sure You want to delete {{row.name}}`s Details ?')" ><i  class="fas fa-trash"></i></a></td>
+					
+					</tr>
+					
+					{% endfor %}
+					
+				</tbody>
+				
+					
+
+
+			</table>
+		</div>
+	</div>
+</body>
+
+
+<script>
+	function myFunction() {
+		var input, filter, table, tr, td, i, tbody,txtValue;
+		input = document.getElementById("myInput");
+		filter = input.value.toUpperCase();
+		table = document.getElementById("myTable");
+		tr = table.getElementsByTagName("tr");
+		for (i = 0; i < tr.length; i++) {
+			td = tr[i].getElementsByTagName("td")[0];
+			
+			if (td) {
+				txtValue = td.textContent || td.innerText;
+				if (txtValue.toUpperCase().indexOf(filter) > -1) {
+					tr[i].style.display = "";
+				} else {
+					tr[i].style.display = "none";
+				}
+			}
+		}
+	}
+</script>
+
+<!-- <script>
+	$(document).ready(function () {
+		$("#myInput").on("keyup", function () {
+			var value = $(this).val().toLowerCase();
+			$("#myTable tr").filter(function () {
+				$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+			});
+		});
+	});
+</script> -->
+
+
+
+<script src="{{url_for('static',filename='js/script2.js')}}"></script>
+</html>

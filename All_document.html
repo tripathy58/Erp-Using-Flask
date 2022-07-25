@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en" class="h-100">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>All_document</title>
+		<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/icon.css')}}">
+		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/main.css')}}">
+		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
+		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/form.css')}}">
+		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/popup.css')}}">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" />
+		<link rel="shortcut icon" href="{{ url_for('static', filename='images/babu.jpg') }}">
+
+
+		<style>
+			.close {
+				color: #aaaaaa;
+				float: right;
+				font-size: 28px;
+				font-weight: bold;
+			}
+
+			.close:hover,
+			.close:focus {
+				color: #000;
+				text-decoration: none;
+				cursor: pointer;
+			}
+
+			.modal-content {
+				background-color: #fff;
+				margin: auto;
+				padding: 10px;
+				border: 3px solid rgb(51, 90, 218);
+				border-radius: 10px;
+				width: 50%;
+			}
+			.search{
+	height: 30px;
+	width: 12%;
+	border: 3px solid blue;
+	border-radius: 5px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	float: right;
+}
+
+		</style>
+
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<body class="overlay-scrollbar">
+		<!-- ############  nav_sidemodal ############# -->
+		{% include 'Nav_sidemodal.html' %}
+		<!-- ############ End  nav_sidemodal ############# -->
+
+		<div class="wrapper">
+
+			<div class="head-title">
+				<div class="left">
+					<h1>All_document</h1>
+				</div>
+				<a class="btn-download">
+					<i class='fas fa-download' style='color: white'></i>
+					<span class="btn-download">DOWNLOAD</span>
+				</a>
+			</div>
+			
+			<h1 class="heading" style="color: blue;">Document</h1>
+			<div>
+				<i class='fas fa-search' style="float:right;margin-top:8px;margin-right: 10px;"></i>
+
+				<input type="search" id="myInput" onkeyup="myFunction()" class="search" placeholder="Search By Party Name">
+			</div><br><br>
+			
+			<table class="table">
+				<thead>
+					<tr>
+						<th>PO NO</th>
+						<th>Party name </th>
+						<th>Delivery status</th>
+						<!-- <th>Supplier Approval status</th> -->
+						<th>Due date</th>
+						<th>Creation date</th>
+						<th>Amount</th>
+						<!-- <th>Internal Approval status</th> -->
+						<th>Download Invoice</th>
+
+					</tr>
+				</thead>
+				<tbody id="myTable">
+					{% for row in doc %}	
+					<tr class="body_table" id="myTable">						
+						<td >{{row.pridoc_docno}}</td>
+						<td >{{row.sup_name}}</td>
+						<td >Received</td>
+						<td >{{row.pridoc_deliverydate}}</td>
+						<td >{{row.pridoc_date}}</td>
+						<td > <i class='fas fa-rupee'></i>&nbsp; {{row.total_after_tax}}</td>
+						<td ><a href="/bill/{{row.id}}"><i class='fas fa-download'></i></a></td>
+					</tr>
+					{% endfor %}
+					
+
+				</tbody>
+			</table>
+		</div>
+		</div>
+	</body>
+
+
+	<!-- <script>
+		$(document).ready(function () {
+			$("#myInput").on("keyup", function () {
+				var value = $(this).val().toLowerCase();
+				$("#myTable tr").filter(function () {
+					$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+				});
+			});
+		});
+	</script> -->
+
+	<script>
+		function myFunction() {
+			var input, filter, table, tr, td, i, tbody,txtValue;
+			input = document.getElementById("myInput");
+			filter = input.value.toUpperCase();
+			table = document.getElementById("myTable");
+			tr = table.getElementsByTagName("tr");
+			for (i = 0; i < tr.length; i++) {
+				td = tr[i].getElementsByTagName("td")[1];
+				
+				if (td) {
+					txtValue = td.textContent || td.innerText;
+					if (txtValue.toUpperCase().indexOf(filter) > -1) {
+						tr[i].style.display = "";
+					} else {
+						tr[i].style.display = "none";
+					}
+				}
+			}
+			
+		}
+	</script>
+
+	<script src="{{url_for('static',filename='js/script2.js')}}"></script>
+
+</html>

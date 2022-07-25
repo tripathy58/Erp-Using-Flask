@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Cart</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link href="{{ url_for('static', filename='css/pharma.css') }}" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/icon.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/main.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/form.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/popup.css')}}">
+
+
+	
+</head>
+
+<body class="overlay-scrollbar">
+		<!-- ############  nav_sidemodal ############# -->
+		{% include 'Nav_sidemodal.html' %}
+		<!-- ############ End  nav_sidemodal ############# -->
+<div class="wrapper">
+	<div class="nav">
+		<a href="view_cart">Total Bill</a>
+	</div>
+
+	<div id="shopping-cart">
+		<h1 class="heading" style="color: blue;">Sales  Product</h1>
+		{% if 'cart_item' in session %}
+		<a id="btnEmpty" href="{{ url_for('.empty_cart') }}">Empty Cart</a>
+		<form action="http://127.0.0.1:5004/transact" method="POST" id="btnEmpty">
+			<input type="text" name="customer_name">
+			<input type="text" name="customer_mobile">
+			<input type="date" name="date">
+		<table class="table" cellpadding="10" cellspacing="1">
+				<thead>
+				<tr>
+					<th style="text-align: left;">Item Name</th>
+					<th style="text-align: left;">Item_Id</th>
+					<th style="text-align: right;" width="5%">Quantity</th>
+					<th style="text-align: right;" width="10%">Unit Price</th>
+					<th style="text-align: right;" width="10%">Price</th>
+					<th style="text-align: center;" width="5%">Remove</th>
+				</tr>
+					</thead>
+				{% for key, val in session['cart_item'].items() %} {% set current_stock =
+				session['cart_item'][key]['current_stock'] %} {% set price = session['cart_item'][key]['price'] %} {%
+				set item_price
+				= session['cart_item'][key]['total_price'] %}
+				<tbody>
+					<tr>
+						<td> <input type="text" name="itemname" value="{{ session['cart_item'][key]['item_name'] }}"
+								style="border: none;" readonly hidden > 
+							{{ session['cart_item'][key]['item_name'] }} </td>
+						<td> <input type="text" name="itemid" value="{{ session['cart_item'][key]['item_id'] }}"
+								style="border: none;" readonly> </td>
+						<td style="text-align: right;"> <input type="text" name="quantity"
+								value="{{ current_stock }}" style="border: none;" readonly> </td>
+						<td style="text-align: right;"> <input type="text" name="unitprice" value="₹ {{ price }}"
+								style="border: none;" readonly> </td>
+						<td style="text-align: right;"> <input type="text" name="total_price"
+								value="₹ {{ item_price }}" style="border: none;" readonly> </td>
+						<td style="text-align: center;">
+							<a href="{{ url_for('.delete_product', item_id=session['cart_item'][key]['item_id']) }}"
+								class="btnRemoveAction">
+								<i class="fa fa-trash" style="font-size: 20px;"></i>
+							</a>
+
+					</tr>
+				</tbody>
+				{% endfor %}
+
+					<tr>
+						<td colspan="2" align="right">Total:</td>
+						<td align="right"> <strong><input type="text" name="all_quantity"
+									value="{{ session['all_total_quantity'] }}" style="border: none;"
+									readonly></strong>
+						</td>
+						<td align="right" colspan="2"><strong> <input type="text" name="all_price"
+									value="Price:₹ {{ session['all_total_price'] }}" style="border: none;" readonly>
+							</strong></td>
+						<td><button onclick="buy()">Buy</button></td>
+
+					</tr>
+			</tbody>
+		</table>
+		</form>
+		{% else: %}
+		<div class="no-records"> No show product</div>
+		{% endif %}
+
+	</div>
+	</div>
+</body>
+	<script src="{{url_for('static',filename='js/script2.js')}}"></script>
+</html>

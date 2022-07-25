@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en" class="h-100">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Inventory</title>
+        <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/icon.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/main.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/form.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/popup.css')}}">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='images/babu.jpg') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" />
+
+
+        <style>
+            .close {
+                color: #aaaaaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+            }
+
+            .close:hover,
+            .close:focus {
+                color: #000;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+            .modal-content {
+                background-color: #fff;
+                margin: auto;
+                padding: 10px;
+                border: 3px solid rgb(51, 90, 218);
+                border-radius: 10px;
+                width: 50%;
+            }
+
+            .search {
+                height: 30px;
+                width: 12%;
+                border: 3px solid blue;
+                border-radius: 5px;
+                margin-right: 10px;
+                margin-bottom: -180px;
+            }
+
+        </style>
+
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <body class="overlay-scrollbar">
+        <!-- ############  nav_sidemodal ############# -->
+        {% include 'Nav_sidemodal.html' %}
+        <!-- ############ End  nav_sidemodal ############# -->
+
+        <div class="wrapper">
+
+            <div class="head-title">
+                <div class="left">
+                    <h1 style="color: blue;">Inventory Table Details</h1>
+                </div>
+               
+            </div>
+            
+            <div class="head-title">
+              
+               
+               
+                <!-- #################   end add stock modal table ################# -->
+                <!-- ------------------------------------ start Upload item --------------------------------------- -->
+                <div id="id02" class="modal">
+                    <div class="modal-content">
+                        <span onclick="document.getElementById('id02').style.display='none'" class="close">&times;</span>
+                        <div class="table-responsive">
+                            <div class="content">
+                                <form action="" enctype="multipart/form-data" method="post">
+                                    <div class="user-upload">
+                                        <div class="input-boxs">
+                                            <input name="file" type="file">
+                                        </div>
+                                    </div>
+                                    <div class="button">
+                                        <input type="submit" value="Upload Excel Sheet">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- #################   end upload item table ################# -->
+
+                <!-- ##################### add stock script ################# -->
+                <script>
+var modal = document.getElementById("myModals");
+var btn = document.getElementById("myBtnn");
+var span = document.getElementsByClassName("close")[1]; 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+span.onclick = function() {
+  modal.style.display = "none";
+}
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+                </script>
+                <!-- #####################  End  stock script ################# -->
+                <!-- <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search By Item Name.." class="search" title="Type in a name"> -->
+            </div>
+
+            <h1 class="heading" style="color:blue;">Product details</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Item Id</th>
+                        <th>Item Name</th>
+                        <th>Item Catagory</th>
+                        <th>Current Stock</th>
+                        <th>Unit</th>
+                        <th>Price</th>
+                        <th>Item Type</th>
+                        <th>Tax</th>
+                        <th>Min Stock Level</th>
+                        <th>Max Stock Level</th>
+                        <th>Country-Party Code</th>
+                        <th>Added On</th>
+                        <th>Dispatch On</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+
+                    </tr>
+                </thead>
+                <tbody id="myTable">
+                    {% for row in details %}
+                        <tr class="body_table">
+                            <td data-label="Item Id">{{row.item_id}}</td>
+                            <td data-label="Item Name">{{row.item_name}}</td>
+                            <td data-label="Item Catagory">{{row.item_cata}}</td>
+                            <td data-label="Current Stock">{{row.current_stock}}</td>
+                            <td data-label="Unit">{{row.unit}}</td>
+                            <td data-label="Price">{{row.price}}</td>
+                            <td data-label="Item Type">{{row.item_type}}</td>
+                            <td data-label="Tax">{{row.tax}}</td>
+                            <td data-label="Min Stock Level">{{row.min_stock}}</td>
+                            <td data-label="Max Stock Level">{{row.max_stock}}</td>
+                            <td data-label="Country-Party Code">{{row.c_party_code}}</td>
+                            <td>{{row.added_on}}</td>
+                            <td>{{row.dispatch_on}}</td>
+                            <td ><a href="/product_edit/{{row.id}}" onclick="return confirm('Are you sure you want to edit {{row.item_name}}')" ><i  class="fas fa-edit"></i></a></td>
+                            <td data-label="Delete"><a href="/delete/{{row.id}}" onclick="return confirm('Are you sure you want to delete {{row.item_name}}')"><i class="fas fa-trash"></i></a></td>
+                        </tr>
+                   
+                    <!-- <script>
+						function myFunction1() {
+						  
+						  if (confirm("Are you sure, you want to delete ?")==true) {
+							location.href="/delete/{{row.id}}"
+						  } else {
+							location.href="inventory"
+						  }
+						  
+						}
+						</script> -->
+                    {% endfor %}
+
+                </tbody>
+
+
+
+
+            </table>
+        </div>
+        </div>
+    </body>
+
+
+    <script>
+        function myFunction() {
+            var input, filter, table, tr, td, i, tbody, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[1];
+
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- <script>
+	$(document).ready(function () {
+		$("#myInput").on("keyup", function () {
+			var value = $(this).val().toLowerCase();
+			$("#myTable tr").filter(function () {
+				$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+			});
+		});
+	});
+</script> -->
+
+
+
+    <script src="{{url_for('static',filename='js/script2.js')}}"></script>
+
+</html>

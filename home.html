@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en" class="h-100">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Erp home</title>
+        <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/icon.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/main.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/home.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/popup.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/form.css')}}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='images/babu.jpg') }}">
+
+    <body class="overlay-scrollbar">
+
+        <!-- ############  nav_sidemodal ############# -->
+        {% include 'Nav_sidemodal.html' %}
+        <!-- ############ End  nav_sidemodal ############# -->
+
+        <div class="wrapper">
+            <div class="slide">
+                <img src="../static/images/contact-bg.jpg" alt="bgimage">
+                <img src="../static/images/home-bg.jpg" alt="bgimage">
+                <img src="../static/images/software-img.png" alt="bgimage">
+            </div>
+            <div class="profilearea">
+                <div class="profileimage">
+                    {% for row in img %}
+                    <img src="/static/uploads/{{row.photo}}" class="pro" style="height: 140px;width:140px">
+                    {% endfor %}
+
+                    <div class="edit" onclick="document.getElementById('id02').style.display='block'">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                </div>
+                <div class="profiletitle">
+                    <p class="compttl">Divine Ai pvt Ltd.</p>
+                    <!-- <p class="compdesc">others..</p> -->
+                </div>
+            </div>
+            <!-- <div class="tabarea">
+            <div class="tab">
+                <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen"><i class="fas fa-hand-point-up"></i> GET STARTED</button>
+                <button class="tablinks" onclick="openCity(event, 'Paris')"><i class="fas fa-shield-alt"></i> MY MODULE</button>
+                <button class="tablinks" onclick="openCity(event, 'Tokyo')"><i class="fas fa-star"></i> EXPLORE FEATURES</button>
+            </div>
+
+            <div id="London" class="tabcontent">
+                <div class="indc">
+                    <div id="rnd">
+                        <p></p>
+                        <button>Tranzact</button>
+                    </div>
+                    <div id="tri"><i class="fas fa-chevron-right"></i></div>
+                    <div id="rnd">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, nam?</p>
+                        <button>Lorem</button>
+                    </div>
+                    <div id="tri"><i class="fas fa-chevron-right"></i></div>
+                    <div id="rnd">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, nam?</p>
+                        <button>Lorem</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="Paris" class="tabcontent">
+                <div>
+                    <div class="headt">
+                        <i class="fas fa-star"></i>
+                        <span> Lifetime Free Modules</span>
+                    </div>
+                    <div>
+                        <div class="cdc">
+                            <div class="cd">
+                                <div class="main">
+                                    <i class="fas fa-code-branch"></i>
+                                    <p>Transactions</p>
+                                </div>
+                                <div class="des">
+                                    <p>Actvated</p>
+                                    <i class="fas fa-link"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cdc">
+                            <div class="cd">
+                                <div class="main">
+                                    <i class="fas fa-code-branch"></i>
+                                    <p>Transactions</p>
+                                </div>
+                                <div class="des">
+                                    <p>Actvated</p>
+                                    <i class="fas fa-link"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cdc">
+                            <div class="cd">
+                                <div class="main">
+                                    <i class="fas fa-code-branch"></i>
+                                    <p>Transactions</p>
+                                </div>
+                                <div class="des">
+                                    <p>Actvated</p>
+                                    <i class="fas fa-link"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cdc">
+                            <div class="cd">
+                                <div class="main">
+                                    <i class="fas fa-code-branch"></i>
+                                    <p>Transactions</p>
+                                </div>
+                                <div class="des">
+                                    <p>Actvated</p>
+                                    <i class="fas fa-link"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cdc">
+                            <div class="cd">
+                                <div class="main">
+                                    <i class="fas fa-code-branch"></i>
+                                    <p>Transactions</p>
+                                </div>
+                                <div class="des">
+                                    <p>Actvated</p>
+                                    <i class="fas fa-link"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cdc">
+                            <div class="cd">
+                                <div class="main">
+                                    <i class="fas fa-code-branch"></i>
+                                    <p>Transactions</p>
+                                </div>
+                                <div class="des">
+                                    <p>Actvated</p>
+                                    <i class="fas fa-link"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="headtt">
+                        <i class="fas fa-snowflake"></i>
+                        <span> Paid Modules</span>
+                    </div>
+                    <div class="cdc">
+                        <div class="cd">
+                            <div class="main">
+                                <i class="fas fa-code-branch"></i>
+                                <p>Transactions</p>
+                            </div>
+                            <div class="des">
+                                <p>Actvated</p>
+                                <i class="fas fa-link"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cdc">
+                        <div class="cd">
+                            <div class="main">
+                                <i class="fas fa-code-branch"></i>
+                                <p>Transactions</p>
+                            </div>
+                            <div class="des">
+                                <p>Actvated</p>
+                                <i class="fas fa-link"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cdc">
+                        <div class="cd">
+                            <div class="main">
+                                <i class="fas fa-code-branch"></i>
+                                <p>Transactions</p>
+                            </div>
+                            <div class="des">
+                                <p>Actvated</p>
+                                <i class="fas fa-link"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="Tokyo" class="tabcontent">
+                <div class="tf">
+                    <div class="hf">
+                        <i class="fas fa-search"></i>
+                        <span><input type="text" placeholder="Search all features"></span>
+                    </div>
+                    <div class="bf">
+                        <table>
+                            <tr>
+                                <th style="width: 65%;" class="th">Access Management</th>
+                            </tr>
+                            <tr>
+                                <td>Access Management</td>
+                                <td><button class="btnac">Active</button></td>
+                                <td><i class="fas fa-play-circle"></i> view details</td>
+                            </tr>
+                        </table>
+                        <br>
+                        <table>
+                            <tr>
+                                <th style="width: 65%;" class="th">Access Management</th>
+                            </tr>
+                            <tr>
+                                <td>Access Management</td>
+                                <td><button class="btnac">Active</button></td>
+                                <td><i class="fas fa-play-circle"></i> view details</td>
+                            </tr>
+                            <tr>
+                                <td>Access Management</td>
+                                <td><button class="btnac">Active</button></td>
+                                <td><i class="fas fa-play-circle"></i> view details</td>
+                            </tr>
+                            <tr>
+                                <td>Access Management</td>
+                                <td><button class="btnac">Active</button></td>
+                                <td><i class="fas fa-play-circle"></i> view details</td>
+                            </tr>
+                        </table>
+                        <br>
+                        <table>
+                            <tr>
+                                <th style="width: 65%;" class="th">Access Management</th>
+                            </tr>
+                            <tr>
+                                <td>Access Management</td>
+                                <td><button class="btnac">Active</button></td>
+                                <td><i class="fas fa-play-circle"></i> view details</td>
+                            </tr>
+                            <tr>
+                                <td>Access Management</td>
+                                <td><button class="btnac">Active</button></td>
+                                <td><i class="fas fa-play-circle"></i> view details</td>
+                            </tr>
+                            <tr>
+                                <td>Access Management</td>
+                                <td><button class="btnac">Active</button></td>
+                                <td><i class="fas fa-play-circle"></i> view details</td>
+                            </tr>
+                            <tr>
+                                <td>Access Management</td>
+                                <td><button class="btnac">Active</button></td>
+                                <td><i class="fas fa-play-circle"></i> view details</td>
+                            </tr>
+                            <tr>
+                                <td>Access Management</td>
+                                <td><button class="btnac">Active</button></td>
+                                <td><i class="fas fa-play-circle"></i> view details</td>
+                            </tr>
+                            <tr>
+                                <td>Access Management</td>
+                                <td><button class="btnac">Active</button></td>
+                                <td><i class="fas fa-play-circle"></i> view details</td>
+                            </tr>
+                            <tr>
+                                <td>Access Management</td>
+                                <td><button class="btnac">Active</button></td>
+                                <td><i class="fas fa-play-circle"></i> view details</td>
+                            </tr>
+                            <tr>
+                                <td>Access Management</td>
+                                <td><button class="btnac">Active</button></td>
+                                <td><i class="fas fa-play-circle"></i> view details</td>
+                            </tr>
+                            <tr>
+                                <td>Access Management</td>
+                                <td><button class="btnac">Active</button></td>
+                                <td><i class="fas fa-play-circle"></i> view details</td>
+                            </tr>
+                            <tr>
+                                <td>Access Management</td>
+                                <td><button class="btnac">Active</button></td>
+                                <td><i class="fas fa-play-circle"></i> view details</td>
+                            </tr>
+                            <tr>
+                                <td>Access Management</td>
+                                <td><button class="btnac">Active</button></td>
+                                <td><i class="fas fa-play-circle"></i> view details</td>
+                            </tr>
+                            <tr>
+                                <td>Access Management</td>
+                                <td><button class="btnac">Active</button></td>
+                                <td><i class="fas fa-play-circle"></i> view details</td>
+                            </tr>
+                            <tr>
+                                <td>Access Management</td>
+                                <td><button class="btnac">Active</button></td>
+                                <td><i class="fas fa-play-circle"></i> view details</td>
+                            </tr>
+                            <tr>
+                                <td>Access Management</td>
+                                <td><button class="btnac">Active</button></td>
+                                <td><i class="fas fa-play-circle"></i> view details</td>
+                            </tr>
+                            <tr>
+                                <td>Access Management</td>
+                                <td><button class="btnac">Active</button></td>
+                                <td><i class="fas fa-play-circle"></i> view details</td>
+                            </tr>
+                        </table>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+            <div class="cards">
+                <h1 style="text-align: center; font-size: 40px;">DIVINE AI</h1>
+                <div class="card1">
+                    <h2>Hello World!</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum molestias neque libero inventore soluta, minima quasi quod tempora dicta deserunt.</p>
+                    <p><a href="">know more..</a></p>
+                </div>
+                <div class="card1">
+                    <h2>Hello World!</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum molestias neque libero inventore soluta, minima quasi quod tempora dicta deserunt.</p>
+                    <p><a href="">know more..</a></p>
+                </div>
+                <div class="card1">
+                    <h2>Hello World!</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum molestias neque libero inventore soluta, minima quasi quod tempora dicta deserunt.</p>
+                    <p><a href="">know more..</a></p>
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <!-- ------------------------------------ start Upload item --------------------------------------- -->
+        <div id="id02" class="modal">
+            <div class="modal-content">
+                <span onclick="document.getElementById('id02').style.display='none'" class="close">&times;</span>
+                <div class="table-responsive">
+                    <div class="content">
+                        <form action="" method="post" enctype="multipart/form-data">
+                            <div class="user-upload">
+                                <div class="input-boxs">
+                                    <input type="file" name="photo[]" id="fileInput" accept="image/*">
+                                </div>
+                            </div>
+                            <div class="button">
+                                <input type="submit" value="upload">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- #################   end upload item table ################# -->
+    </body>
+    <script src="{{url_for('static',filename='js/script2.js')}}"></script>
+    <script src="{{url_for('static',filename='js/home.js')}}"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            // File type validation
+            $("#fileInput").change(function () {
+                var fileLength = this.files.length;
+                var match = ["image/jpeg", "image/png", "image/jpg", "image/gif"];
+                var i;
+                for (i = 0; i < fileLength; i++) {
+                    var file = this.files[i];
+                    var imagefile = file.type;
+                    if (!((imagefile == match[0]) || (imagefile == match[1]) || (imagefile == match[2]) || (imagefile == match[3]))) {
+                        alert('Please select a valid image file (JPEG/JPG/PNG/GIF).');
+                        $("#fileInput").val('');
+                        return false;
+                    }
+                }
+            });
+        });
+    </script>
+
+
+</html>

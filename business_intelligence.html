@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en" class="h-100">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Inventory</title>
+		<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/icon.css')}}">
+		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/main.css')}}">
+		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
+		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/form.css')}}">
+		<link rel="shortcut icon" href="{{ url_for('static', filename='images/babu.jpg') }}">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" />
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		<script type="text/javascript">
+			google.charts.load("current", { packages: ["corechart"] });
+			google.charts.setOnLoadCallback(drawChart);
+			function drawChart() {
+				var data = google.visualization.arrayToDataTable([
+					['Task', 'Hours per Day'],
+					['Work', 11],
+					['Eat', 2],
+					['Commute', 2],
+					['Watch TV', 2],
+					['Sleep', 7]
+				]);
+
+				var options = {
+					title: 'My Daily Activities',
+					is3D: true,
+				};
+
+				var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+				chart.draw(data, options);
+			}
+		</script>
+
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		<script type="text/javascript">
+			google.charts.load('current', { 'packages': ['corechart'] });
+			google.charts.setOnLoadCallback(drawChart);
+
+			function drawChart() {
+				var data = google.visualization.arrayToDataTable([
+					['Year', 'Sales', 'Expenses'],
+					['2004', 1000, 400],
+					['2005', 1170, 460],
+					['2006', 660, 1120],
+					['2007', 1030, 540]
+				]);
+
+				var options = {
+					title: 'Company Performance',
+					curveType: 'function',
+					legend: { position: 'bottom' }
+				};
+
+				var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+				chart.draw(data, options);
+			}
+		</script>
+
+
+		<style>
+			.Ashis {
+				height: 36px;
+				padding: 10px 20px;
+				border-radius: 20px;
+				background: #284cee;
+				color: #fff;
+				justify-content: center;
+				align-items: center;
+				grid-gap: 10px;
+				font-weight: 500;
+				text-decoration: none;
+			}
+
+			/* The Modal (background) */
+
+			/* The Close Button */
+			.close {
+				color: #aaaaaa;
+				float: right;
+				font-size: 28px;
+				font-weight: bold;
+			}
+
+			.close:hover,
+			.close:focus {
+				color: #000;
+				text-decoration: none;
+				cursor: pointer;
+			}
+
+			.ba {
+				display: flex;
+			}
+
+			.bap,
+			.bac {
+				width: 50%;
+				height: 400px;
+				box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+				margin: 20px;
+			}
+
+			@media (min-width: 250px) and (max-width: 430px) {
+				.ba {
+					display: block;
+				}
+
+				.bap,
+				.bac {
+					width: auto;
+					height: 200px;
+					margin: 10px;
+				}
+
+				.h1 {
+					font-size: 20px;
+				}
+			}
+
+		</style>
+
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<body class="overlay-scrollbar">
+		<!-- ############  nav_sidemodal ############# -->
+		{% include 'Nav_sidemodal.html' %}
+		<!-- ############ End  nav_sidemodal ############# -->
+
+		<div class="wrapper">
+
+			<h1 class="h1">business_intelligence</h1>
+			<div class="ba">
+				<div id="piechart_3d" class="bap"></div>
+				<div id="curve_chart" class="bac"></div>
+			</div>
+		</div>
+	</body>
+
+
+	<script>
+		$(document).ready(function () {
+			$("#myInput").on("keyup", function () {
+				var value = $(this).val().toLowerCase();
+				$("#myTable tr").filter(function () {
+					$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+				});
+			});
+		});
+	</script>
+
+
+	<script src="{{url_for('static',filename='js/script2.js')}}"></script>
+
+</html>

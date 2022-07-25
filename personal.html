@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en" class="h-100">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Erp personal</title>
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/icon.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/main.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/popup.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/form.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/personal.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/babu.jpg') }}">
+
+<body class="overlay-scrollbar">
+    <!-- ############  nav_sidemodal ############# -->
+    {% include 'Nav_sidemodal.html' %}
+    <!-- ############ End  nav_sidemodal ############# -->
+    <div class="wrapper">
+        <div class="prof">
+            <div class="proimg">
+                <img src="/static/uploads/{{pro['photo']}}" id="babuimg"><br>
+                <button onclick="document.getElementById('id02').style.display='block'" id="btnimg">UPLOAD PHOTO</button>
+            </div>
+            <div>{{msg}}</div>
+
+            <div class="tabper">
+                <div class="tabb">
+                    <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen"><i
+                            class="fas fa-id-card"></i><br>Personal Info</button>
+                    <button class="tablinks" onclick="openCity(event, 'Paris')"><i class="fas fa-key"></i><br>Change
+                        Password</button>
+                    <button class="tablinks" onclick="openCity(event, 'Tokyo')"><i
+                            class="fas fa-signature"></i><br>Signature</button>
+                </div>
+                <div id="London" class="tabbcontent">
+                    <form action="http://127.0.0.1:5004/edit_profile" method="post">
+                        <div class="pi">
+                            <label for="">First Name<span style="color: #f00;">*</span></label><br>
+                            <input type="text" name="first_name" value="{{pro['first_name']}}">
+                        </div>
+                        <div class="pi">
+                            <label for="">Last Name<span style="color: #f00;">*</span></label><br>
+                            <input type="text" name="last_name" value="{{pro['last_name']}}">
+                        </div>
+                        <div class="pi">
+                            <label for="">Contact Number<span style="color: #f00;">*</span></label><br>
+                            <input type="text" name="mobile" value="{{pro['mobile']}}">
+                        </div>
+                        <div class="pi">
+                            <label for="">Email Address<span style="color: #f00;">*</span></label><br>
+                            <input type="email" name="email" value="{{pro['email']}}" readonly>
+                        </div>
+                        <div class="savebtn">
+                            <input type="submit" value="Save">
+                        </div>
+                    </form>
+                </div>
+
+                <div id="Paris" class="tabbcontent">
+                    <form action="http://127.0.0.1:5004/change_password" method="post">
+                        <!-- <div class="pi">
+                            <label for="">Enter Your Email<span style="color: #f00;">*</span></label><br>
+                            <input type="email">
+                        </div> -->
+                        <div class="pi">
+                            <label for="">New Password<span style="color: #f00;">*</span></label><br>
+                            <input type="password" name="password">
+                        </div>
+                        <div class="pi">
+                            <label for="">Re-enter New Password<span style="color: #f00;">*</span></label><br>
+                            <input type="password" name="confirm_password">
+                        </div>
+                        <div class="savebtn">
+                            <input type="submit" value="Save">
+                        </div>
+                    </form>
+                </div>
+
+                <div id="Tokyo" class="tabbcontent">
+                    <div class="pi">
+                        <p><b>Your Signature</b></p>
+                        <p>You can use your signature in the documents you create</p>
+                        <center><img src="/static/uploads/{{pro['sign']}}" alt=""
+                                style="height: 150px;width:40%;border: 2px solid black;border-radius: 10px;"></center>
+                        <br><br>
+                        <form action="http://127.0.0.1:5004/upload_sign" method="post" enctype="multipart/form-data">
+                            <div class="user-upload">
+                                <div class="input-boxs">
+                                    <input type="file" name="sign[]" id="fileInput" accept="image/*" required>
+                                </div>
+                            </div>
+                            <div class="savebtn" style="width: 250px;float:right">
+                                <input type="submit" value="Upload Signature">
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ------------------------------------ start Upload item --------------------------------------- -->
+    <div id="id02" class="modal">
+        <div class="modal-content">
+            <span onclick="document.getElementById('id02').style.display='none'" class="close">&times;</span>
+            <div class="table-responsive">
+                <div class="content">
+                    <form action="http://127.0.0.1:5004/upload_photo" method="post" enctype="multipart/form-data">
+                        <div class="user-upload">
+                            <div class="input-boxs">
+                                <input type="file" name="photo[]" id="fileInput" accept="image/*">
+                            </div>
+                        </div>
+                        <div class="button">
+                            <input type="submit" value="upload">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- #################   end upload item table ################# -->
+</body>
+<script src="{{url_for('static',filename='js/script2.js')}}"></script>
+<script src="{{url_for('static',filename='js/personal.js')}}"></script>
+
+</html>

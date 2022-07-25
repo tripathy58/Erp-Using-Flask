@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en" class="h-100">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Inventory</title>
+        <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/icon.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/main.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/form.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/popup.css')}}">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='images/babu.jpg') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" />
+
+
+        <style>
+            .close {
+                color: #aaaaaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+            }
+
+            .close:hover,
+            .close:focus {
+                color: #000;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+            .modal-content {
+                background-color: #fff;
+                margin: auto;
+                padding: 10px;
+                border: 3px solid rgb(51, 90, 218);
+                border-radius: 10px;
+                width: 50%;
+            }
+
+            .search {
+                height: 30px;
+                width: 12%;
+                border: 3px solid blue;
+                border-radius: 5px;
+                margin-right: 10px;
+                margin-bottom: -180px;
+            }
+ .search1 {
+                height: 30px;
+                width: 12%;
+                border: 3px solid blue;
+                border-radius: 5px;
+                margin-right: 10px;
+                margin-bottom: -8px;
+            }
+
+        </style>
+
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <body class="overlay-scrollbar" id="myTable">
+        <!-- ############  nav_sidemodal ############# -->
+        {% include 'Nav_sidemodal.html' %}
+        <!-- ############ End  nav_sidemodal ############# -->
+
+        <div class="wrapper">
+
+            <div class="head-title">
+                <div class="left">
+                    <h1>Check All Bill</h1>
+                </div>
+            <input type="text" id="myInput"  placeholder="Search By Item Name.." class="search1" title="Type in a name">
+            </div>
+
+            <ul >
+                {% for row in check %}
+                  <h3>Check Number: {{row.check_no}}</h3>
+                         
+                        <img  src="/static/uploads/{{row.photo}}" style="height: 40vh;width:90%;border-radius:10px;border:2px solid gray" alt="Girl in a jacket">      
+                   
+               
+               {% endfor %}
+            </ul>
+
+            <div class="head-title">   
+             
+        </div>
+    </body>
+
+    <!-- <script>
+        function myFunction() {
+            var input, filter, table, tr, td, i, tbody,txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[1];
+                
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script> -->
+
+<script>
+	$(document).ready(function () {
+		$("#myInput").on("keyup", function () {
+			var value = $(this).val().toLowerCase();
+			$("#myTable tr").filter(function () {
+				$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+			});
+		});
+	});
+</script>
+
+    <script src="{{url_for('static',filename='js/script2.js')}}"></script>
+
+</html>

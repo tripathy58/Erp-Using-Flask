@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en" class="h-100">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Inventory</title>
+		<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/icon.css')}}">
+		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/main.css')}}">
+		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
+		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/form.css')}}">
+		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/popup.css')}}">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" />
+		<link rel="shortcut icon" href="{{ url_for('static', filename='images/babu.jpg') }}">
+
+
+		<style>
+			.close {
+				color: #aaaaaa;
+				float: right;
+				font-size: 28px;
+				font-weight: bold;
+			}
+
+			.close:hover,
+			.close:focus {
+				color: #000;
+				text-decoration: none;
+				cursor: pointer;
+			}
+			.modal-content {
+       background-color: #fff;
+       margin: auto;
+       padding: 10px;
+       border: 3px solid rgb(51, 90, 218);
+       border-radius: 10px;
+       width: 50%;
+   }
+
+		</style>
+
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<body class="overlay-scrollbar">
+		<!-- ############  nav_sidemodal ############# -->
+		{% include 'Nav_sidemodal.html' %}
+		<!-- ############ End  nav_sidemodal ############# -->
+
+		<div class="wrapper">
+
+			<div class="head-title">
+				<div class="left">
+					<h1>Buyer&Supplier</h1>
+				</div>
+				<a onclick="document.getElementById('id02').style.display='block'" class="btn-download">
+				<!-- <i class='bx bxs-cloud-download' ></i> -->
+				<span class="btn-download">Upload Item</span>
+			</a>
+			</div>
+
+			<div class="head-title">
+				<div class="left">
+					<button type="button" class="btn_One" id="myBtnn"><i class='bx bxs-plus-circle' style="color: white;"></i>ADD COMPANY</button>
+
+				</div>
+				<div style="color: red;font-weight:500;font-style:italic">{{msg}}</div>
+				<!-- ------------------------------------Update Stock Modal--------------------------------------- -->
+				<div id="id01" class="modal">
+					<div class="modal-content">
+						<span onclick="document.getElementById('id01').style.display='none'" class="close">&times;</span>
+						<div class="table-responsive">
+							<div>
+								<form class="row" action="http://127.0.0.1:5004/update_stock" method="post">
+									<div class="mod">
+										<label for="inputFname" class="form-label">Item Id *</label><br>
+										<input type="text" name="item_id" class="form-control " placeholder="Item Id *" aria-label="First name">
+									</div>
+									<div class="mod">
+										<label for="inputLame" class="form-label">Update Stock Value</label><br>
+										<input type="text" name="current_stock" class="form-control " placeholder="Employee's Last name" aria-label="Last name">
+									</div>
+									<div class="mod">
+										<label for="inputEcode" class="form-label">Price</label><br>
+										<input type="text" name="price" class="form-control " placeholder="Example: 8820" aria-label="Employee Code">
+									</div>
+									<div class="up">
+										<input type="submit" value="Update">
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- #################   end update stock modal table ################# -->
+
+
+				<!-- #################    add stock modal table #################
+<-- The Modal -->
+				<div id="myModals" class="modal">
+					<!-- Modal content -->
+					<div class="modal-content">
+						<span class="close">&times;</span>
+						<div class="content">
+							<form action="" method="post">
+								<div class="user-details">
+									<div class="input-box">
+										<span >Select Type</span>
+										<select class="details" name="type">
+											<option>Buyer</option>
+											<option>Supplier</option>
+											<option>Both</option>
+										</select>
+									</div>
+									<div class="input-box">
+										<span class="details">Company Name *</span>
+										<input name="c_name" type="text" placeholder="Company Name *">
+									</div>
+									<div class="input-box">
+										<span class="details">GST IN</span>
+										<input name="gst_in" type="text" placeholder="GST IN">
+									</div>
+									<div class="input-box">
+										<span class="details">Email id</span>
+										<input name="c_email" type="email" placeholder="Email id">
+									</div>
+									<div class="input-box">
+										<span class="details">Mobile Number</span>
+										<input name="mobile" type="number" placeholder="Mobile Number">
+									</div>
+									<div class="input-box">
+										<span class="details">Address Line1*</span>
+										<input name="address1" type="text" placeholder="Address Line1*">
+									</div>
+									<div class="input-box">
+										<span class="details">Address Line2*</span>
+										<input name="address2" type="text" placeholder="Address Line2*">
+									</div>
+									<div class="input-box">
+										<span class="details">pin</span>
+										<input name="pin" type="number" placeholder="pin">
+									</div>
+									<div class="input-box">
+										<span class="details">City*</span>
+										<input name="city" type="text" placeholder="City*">
+									</div>
+									<div class="input-box">
+										<span class="details">State*</span>
+										<input name="state" type="text" placeholder="State*">
+									</div>
+									<div class="input-box">
+										<span class="details">Country</span>
+										<input name="country" type="text" placeholder="Country">
+									</div>
+									<div class="input-box">
+										<span class="details">Tags*</span>
+										<input name="tags" type="text" placeholder="Tags*">
+									</div>
+									<div class="input-box">
+										<span class="details">Added On</span>
+										<input name="date" type="date" placeholder="Tags*">
+									</div>
+									<div class="input-box">
+										<span class="details">Contact Person Name*</span>
+										<input name="name" type="text" placeholder="Name*">
+									</div>
+									<div class="input-box">
+										<span class="details">Contact Person Email id*</span>
+										<input name="email" type="email" placeholder="Email id*">
+									</div>
+								</div>
+								<div class="button">
+									<input type="submit" value="ADD">
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<!-- #################   end add stock modal table ################# -->
+
+					<!-- ------------------------------------ start Upload item --------------------------------------- -->
+					<div id="id02" class="modal">
+						<div class="modal-content">
+							<span onclick="document.getElementById('id02').style.display='none'" class="close">&times;</span>
+							<div class="table-responsive">
+								<div class="content">
+									<form action="#" method="post">
+										<div class="user-upload">
+											<div class="input-boxs">
+												<input name="item_id" type="file" id="myFile" name="filename">
+											</div>
+										</div>
+										<div class="button">
+											<input type="submit" value="upload">
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- #################   end upload item table ################# -->
+
+				<!-- ##################### add stock script ################# -->
+				<script>
+					var modal = document.getElementById("myModals");
+					var btn = document.getElementById("myBtnn");
+					var span = document.getElementsByClassName("close")[1];
+					btn.onclick = function () {
+						modal.style.display = "block";
+					}
+					span.onclick = function () {
+						modal.style.display = "none";
+					}
+					window.onclick = function (event) {
+						if (event.target == modal) {
+							modal.style.display = "none";
+						}
+					}
+				</script>
+				<!-- #####################  End  stock script ################# -->
+				<div class="Search_section">
+					<input type="search" id="myInput" placeholder="Search hear.." style="border-radius: 10px;">
+					<span><i class="bx bx-search-alt-2"></i></span>
+				</div>
+			</div>
+
+			<table class="table" style="margin-top: 2%;">
+				<thead>
+					<tr>
+						<th style="text-align: center;">COMPANY</th>
+						<th style="text-align: center;">TAGS</th>
+						<th style="text-align: center;">ADDED ON</th>
+						<th style="text-align: center;">ACTIONS</th>
+
+					</tr>
+				</thead>
+				<tbody id="myTable">
+					{% for row in buyer %}
+					<tr class="body_table">
+						<td data-label="COMPANY"> <img src="{{url_for('static',filename='images/user.svg')}}" style="height: 50px;float: left;" alt="">{{row.c_name}}<br>{{row.address1}}<br>{{row.pin}}</td>
+						<td data-label="TAGS">{{row.tags}}</td>
+						<td data-label="ADDEC ON"><span class="status">{{row.date}}</span></td>
+						<td data-label="ACTIONS"> <a href="/buyer_supplier_edit/{{row.id}}"><i class='bx bxs-edit' style="font-size: larger;border: 1px solid blue;border-radius: 60%;padding: 2%;"></i></a> <a href="/delete_buyer/{{row.id}}"><i class='bx bxs-trash' style="font-size: larger;color: red;border: 1px solid red;border-radius: 60%;padding: 2%;"></i></a></td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+		</div>
+	</body>
+
+
+	<script>
+		$(document).ready(function () {
+			$("#myInput").on("keyup", function () {
+				var value = $(this).val().toLowerCase();
+				$("#myTable tr").filter(function () {
+					$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+				});
+			});
+		});
+	</script>
+
+
+	<script src="{{url_for('static',filename='js/script2.js')}}"></script>
+
+</html>

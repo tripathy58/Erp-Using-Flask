@@ -1,0 +1,215 @@
+<!-- ############ nav bar ############### -->
+<div class="navbar">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link">
+        <i class="fas fa-bars" onclick="collapseSidebar()"></i>
+      </a>
+    </li>
+  </ul>
+  <h2>
+    <a href="#" style="color: blue" class="text-success no-decor">DIVINE ERP</a>
+  </h2>
+  <ul class="navbar-nav nav-right">
+    <li class="nav-item mode">
+      <a class="nav-link" href="#" onclick="switchTheme()">
+        <i class="fas fa-moon dark-icon"></i>
+        <i class="fas fa-sun light-icon"></i>
+      </a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link">
+        <i
+          class="fas fa-bell dropdown-toggle"
+          data-toggle="notification-menu"
+        ></i>
+        <span class="navbar-badge">15</span>
+      </a>
+      <ul id="notification-menu" class="dropdown-menu notification-menu">
+        <div class="dropdown-menu-header">
+          <span> Notifications </span>
+        </div>
+        <div class="dropdown-menu-content overlay-scrollbar scrollbar-hover">
+          <li class="dropdown-menu-item">
+            <a href="#" class="dropdown-menu-link">
+              <div>
+                <i class="fas fa-gift"></i>
+              </div>
+              <span>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. <br />
+                <span> 15/07/2020 </span>
+              </span>
+            </a>
+          </li>
+          <li class="dropdown-menu-item">
+            <a href="#" class="dropdown-menu-link">
+              <div>
+                <i class="fas fa-tasks"></i>
+              </div>
+              <span>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. <br />
+                <span> 15/07/2020 </span>
+              </span>
+            </a>
+          </li>
+          <li class="dropdown-menu-item">
+            <a href="#" class="dropdown-menu-link">
+              <div>
+                <i class="fas fa-gift"></i>
+              </div>
+              <span>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. <br />
+                <span> 15/07/2020 </span>
+              </span>
+            </a>
+          </li>
+        </div>
+        <div class="dropdown-menu-footer">
+          <span> View all notifications </span>
+        </div>
+      </ul>
+    </li>
+    <li class="nav-item avt-wrapper">
+      <div class="avt dropdown" >
+        <img
+          src="/static/uploads/{{pro['photo']}}"
+          alt="/static/images/user.svg"
+          class="dropdown-toggle"
+          data-toggle="user-menu"
+        /> 
+        <ul id="user-menu" class="dropdown-menu">
+          <li class="dropdown-menu-item">
+            <a  href="{{url_for('personal')}}"class="dropdown-menu-link">
+              <div>
+                <i class="fas fa-user-tie" style=""></i>
+              </div>
+              <span>Profile</span>
+            </a>
+          </li>
+          <!-- <li class="dropdown-menu-item">
+            <a href="#" class="dropdown-menu-link">
+              <div>
+                <i class="fas fa-cog" style=""></i>
+              </div>
+              <span>Settings</span>
+            </a>
+          </li>
+          <li class="dropdown-menu-item">
+            <a href="#" class="dropdown-menu-link">
+              <div>
+                <i class="far fa-credit-card" style=""></i>
+              </div>
+              <span>Payments</span>
+            </a>
+          </li>
+          <li class="dropdown-menu-item">
+            <a href="#" class="dropdown-menu-link">
+              <div>
+                <i class="fas fa-spinner" style=""></i>
+              </div>
+              <span>Projects</span>
+            </a>
+          </li> -->
+          <li class="dropdown-menu-item">
+            <a href="{{url_for('index')}}" class="dropdown-menu-link">
+              <div>
+                <i class="fas fa-sign-out-alt" style=""></i>
+              </div>
+              <span>Logout</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<!-- ############ End  nav bar ############### -->
+
+<!-- #####################    Side bar ################################################# -->
+
+<div class="sidebar">
+  <ul class="sidebar-nav">
+    <li class="sidebar-nav-item">
+      <a href="{{url_for('home')}}" class="sidebar-nav-link">
+        <div>
+          <i style="" class="fas fa-home"></i>
+        </div>
+        <span>Home</span>
+      </a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="{{url_for('inventory')}}" class="sidebar-nav-link ">
+        <div>
+          <i style="" class="fas fa-cubes"></i>
+        </div>
+        <span>Inventory</span>
+      </a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="{{url_for('sales')}}" class="sidebar-nav-link">
+        <div>
+          <i style="" class="fas fa-location-arrow"></i>
+        </div>
+        <span>Sales</span>
+      </a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="{{url_for('All_document')}}" class="sidebar-nav-link">
+        <div>
+          <i style="" class="fas fa-file-alt"></i>
+        </div>
+        <span>All Documents</span>
+      </a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="{{url_for('payment')}}" class="sidebar-nav-link">
+        <div>
+          <i style="" class="fas fa-rupee-sign"></i>
+        </div>
+        <span>Payment</span>
+      </a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="{{url_for('tranzaction')}}" class="sidebar-nav-link">
+        <div>
+          <i style=""  class="fas fa-code-branch"></i>
+        </div>
+        <span>Transaction</span>
+      </a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="{{url_for('buyer_supplier')}}" class="sidebar-nav-link">
+        <div>
+          <i style="" class="fas fa-book-open"></i>
+        </div>
+        <span>Buyers & Suppliers</span>
+      </a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="{{url_for('business_intelligence')}}" class="sidebar-nav-link">
+        <div>
+          <i style="" class="fas fa-chart-line"></i>
+        </div>
+        <span>Business Intelligence</span>
+      </a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="{{url_for('employee')}}" class="sidebar-nav-link">
+        <div>
+          <i style="" class="fas fa-users"></i>
+        </div>
+        <span>Employee</span>
+      </a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="#" class="sidebar-nav-link">
+        <div>
+          <i style="" class="fa fa-cog"></i>
+        </div>
+        <span>Setting</span>
+      </a>
+    </li>
+  </ul>
+</div>
+<!-- #####################   end  Side bar ################################################# -->

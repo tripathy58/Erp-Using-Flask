@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en" class="h-100">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Erp</title>
+        <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/icon.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/main.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/POrder.css')}}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='images/babu.jpg') }}">
+
+
+    <body class="overlay-scrollbar">
+        <!-- ############  nav_sidemodal ############# -->
+        {% include 'Nav_sidemodal.html' %}
+        <!-- ############ End  nav_sidemodal ############# -->
+
+        <div class="wrapper">
+            <div class="total">
+                <div class="four">
+                    <div class="f1">
+                        <form action="" method="post">
+                            {% for row in view %}
+                            <p><b>Buyer Details</b></p>
+                            <div class="f41">
+                                <div class="fc">
+                                    <label for="">Name<span style="color: #f00;">*</span></label><br>
+                                    <input type="text" name="buyer_name" value="{{row.buyer_name}}">
+                                </div>
+                                <div class="fc">
+                                    <label for="">Address<span style="color: #f00;">*</span></label><br>
+                                    <input type="text" name="buyer_address" value="{{row.buyer_address}}">
+                                </div>
+                                <div class="fc">
+                                    <label for="">Email<span style="color: #f00;">*</span></label><br>
+                                    <input type="email" name="buyer_email" value="{{row.buyer_email}}">
+                                </div>
+
+                                <div>
+                                    <label for="">Phone<span style="color: #f00;">*</span></label><br>
+                                    <input type="number" name="buyer_phone" value="{{row.buyer_phone}}">
+
+                                </div>
+                                <div>
+                                    <label for="">GST<span style="color: #f00;">*</span></label><br>
+                                    <input type="text" name="buyer_gstin" value="{{row.buyer_gstin}}">
+                                </div>
+                                <div>
+                                    <label for="">State<span style="color: #f00;">*</span></label><br>
+                                    <input type="text" name="buyer_state" value="{{row.buyer_state}}">
+                                </div>
+                                <div>
+                                    <label for="">Country<span style="color: #f00;">*</span></label><br>
+                                    <input type="text" name="buyer_country" value="{{row.buyer_country}}">
+                                </div>
+                            </div>
+                    </div>
+                    <div class="f2">
+                        <p><b>Delivery Location</b></p>
+                        <div class="f41">
+                            <div class="fc">
+                                <label for="">Name<span style="color: #f00;">*</span></label><br>
+                                <input type="text" name="del_name" value="{{row.del_name}}">
+                            </div>
+                            <div class="fc">
+                                <label for="">Address<span style="color: #f00;">*</span></label><br>
+                                <input type="text" name="del_address" value="{{row.del_address}}">
+                            </div>
+                            <div class="fc">
+                                <label for="">Pin<span style="color: #f00;">*</span></label><br>
+                                <input type="number" name="del_pin" value="{{row.del_pin}}">
+                            </div>
+                            <div class="fc">
+                                <label for="">City<span style="color: #f00;">*</span></label><br>
+                                <input type="text" name="del_city" value="{{row.del_city}}">
+                            </div>
+                            <div>
+                                <label for="">State<span style="color: #f00;">*</span></label><br>
+                                <input type="text" name="del_state" value="{{row.del_state}}">
+
+                            </div>
+                            <div>
+                                <label for="">Country<span style="color: #f00;">*</span></label><br>
+                                <input type="text" name="del_country" value="{{row.del_country}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="f3">
+                        <p><b>Supplier Details</b></p>
+                        <div class="f41">
+                            <div class="fc">
+                                <label for="">Name<span style="color: #f00;">*</span></label><br>
+                                <input type="text" name="sup_name" value="{{row.sup_name}}">
+                            </div>
+                            <div class="fc">
+                                <label for="">Address<span style="color: #f00;">*</span></label><br>
+                                <input type="text" name="sup_address" value="{{row.sup_address}}">
+                            </div>
+                            <div class="fc">
+                                <label for="">Email<span style="color: #f00;">*</span></label><br>
+                                <input type="text" name="sup_email" value="{{row.sup_email}}">
+                            </div>
+
+                            <div>
+                                <label for="">Phone<span style="color: #f00;">*</span></label><br>
+                                <input type="text" name="sup_phone" value="{{row.sup_phone}}">
+
+                            </div>
+                            <div>
+                                <label for="">GST<span style="color: #f00;">*</span></label><br>
+                                <input type="text" name="sup_gstin" value="{{row.sup_gstin}}">
+                            </div>
+                            <div>
+                                <label for="">State<span style="color: #f00;">*</span></label><br>
+                                <input type="text" name="sup_state" value="{{row.sup_state}}">
+                            </div>
+                            <div>
+                                <label for="">Country<span style="color: #f00;">*</span></label><br>
+                                <input type="text" name="sup_country" value="{{row.sup_country}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="f4">
+                        <p><b>Place Of Supply</b></p>
+                        <div class="f41">
+                            <div class="fc">
+                                <label for="">Name<span style="color: #f00;">*</span></label><br>
+                                <input type="text" name="ps_name" value="{{row.ps_name}}">
+                            </div>
+                            <div class="fc">
+                                <label for="">Address<span style="color: #f00;">*</span></label><br>
+                                <input type="text" name="ps_address" value="{{row.ps_address}}">
+                            </div>
+                            <div class="fc">
+                                <label for="">Email<span style="color: #f00;">*</span></label><br>
+                                <input type="email" name="ps_email" value="{{row.ps_email}}">
+                            </div>
+
+                            <div>
+                                <label for="">Phone<span style="color: #f00;">*</span></label><br>
+                                <input type="number" name="ps_phone" value="{{row.ps_phone}}">
+
+                            </div>
+                            <div>
+                                <label for="">GST<span style="color: #f00;">*</span></label><br>
+                                <input type="text" name="ps_gstin" value="{{row.ps_gstin}}">
+                            </div>
+                            <div>
+                                <label for="">State<span style="color: #f00;">*</span></label><br>
+                                <input type="text" name="ps_state" value="{{row.ps_state}}">
+                            </div>
+                            <div>
+                                <label for="">Country<span style="color: #f00;">*</span></label><br>
+                                <input type="text" name="ps_country" value="{{row.ps_country}}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="one">
+                    <p><b>Primary Document Details</b></p>
+                    <div class="o1">
+                        <div>
+                            <label for="">Title<span style="color: #f00;">*</span></label><br>
+                            <input type="text" name="pridoc_title" value="{{row.pridoc_title}}">
+                        </div>
+                        <div>
+                            <label for="">Document Number<span style="color: #f00;">*</span></label><br>
+                            <input type="number" name="pridoc_docno" value="{{row.pridoc_docno}}">
+                        </div>
+                        <div>
+                            <label for="">Document Date<span style="color: #f00;">*</span></label><br>
+                            <input type="date" name="pridoc_date" value="{{row.pridoc_date}}">
+                        </div>
+                        <div>
+                            <label for="">Amendment<span style="color: #f00;">*</span></label><br>
+                            <input type="text" name="pridoc_amendment" value="{{row.pridoc_amendment}}">
+                        </div>
+                        <div>
+                            <label for="">Delivery Date<span style="color: #f00;">*</span></label><br>
+                            <input type="date" name="pridoc_deliverydate" value="{{row.pridoc_deliverydate}}">
+                        </div>
+                        <div>
+                            <label for="">Store<span style="color: #f00;">*</span></label><br>
+                            <select name="pridoc_store" value="{{row.pridoc_store}}" id="">
+                                <option value="">1</option>
+                                <option value="">2</option>
+                                <option value="">3</option>
+                                <option value="">4</option>
+                                <option value="">5</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="fullone">
+                    <div class="sch">
+                        <input type="search" id="search" placeholder="Search with ID or Desc..">
+                    </div>
+                    <div class="tbl">
+                        <table>
+                            <tr class="tr1">
+                                <th style="width: 2%;"></th>
+                                <th style="width: 18%;">Item Id</th>
+                                <th style="width: 20%;">Item Description</th>
+                                <th style="width: 10%;">HSN/SAC Code</th>
+                                <th style="width: 10%;">Quanity</th>
+                                <th style="width: 10%;">Units</th>
+                                <th style="width: 10%;">Price</th>
+                                <th style="width: 10%;">Tax</th>
+                                <!-- <th style="width: 10%;">Total Before Tax</th> -->
+                            </tr>
+                            <tr>
+                                <td><b>1.</b></td>
+                                <td>
+                                    <input type="text" name="item_id" value="{{row.item_id}}">
+
+                                </td>
+                                <td>
+                                    <input type="text" name="item_desc" value="{{row.item_desc}}">
+
+                                </td>
+                                <td>
+                                    <input type="text" name="hsn_code" value="{{row.hsn_code}}">
+                                </td>
+                                <td>
+                                    <input type="text" name="quantity" value="{{row.quantity}}">
+                                </td>
+                                <td>
+                                    <input type="text" name="unit" value="{{row.unit}}">
+
+                                </td>
+                                <td>
+                                    <input type="text" name="price" value="{{row.price}}">
+
+                                </td>
+                                <td>
+                                    <input type="text" name="tax" value="{{row.tax}}">
+
+                                </td>
+
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="bttn">
+                    <button type="submit"><i class="fas fa-plus"></i> Update</button>
+                </div>
+                
+                </form>
+
+                <!-- <div class="paybill">
+                    <hr>
+                    <table>
+                        <tr>
+                            <td style="width: 50%;">Total (before tax) :</td>
+                            <td style="width: 50%;">₹0.00</td>
+                        </tr>
+                        <tr>
+                            <td>Total Tax :</td>
+                            <td>₹0.00</td>
+                        </tr>
+                        <tr>
+                            <td>Total (after tax) :</td>
+                            <td>₹0.00</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size: 20px;">Grand Total :</td>
+                            <td style="font-size: 20px;">₹0.00</td>
+                        </tr>
+                        <tr>
+                            <td>Advance To Pay :</td>
+                            <td><input type="text"></td>
+                        </tr>
+                    </table>
+                    <button id="btns">SAVE</button>
+                </div> -->
+            </div>
+        </div>
+    </body>
+    <script src="{{url_for('static',filename='js/script2.js')}}"></script>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login Form</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/forget.css')}}">
+    </head>
+    
+    <body>
+        <div class="login">
+            <form id="login" method="post" action="http://127.0.0.1:5004/forget">
+                <label><b>New password
+                    </b>
+                </label>
+                <input type="password" name="password" id="Uname" placeholder="New password">
+                <br><br>
+                <label><b>Conform password
+                    </b>
+                </label>
+                <input type="Password" name="confirm_password" id="Pass" placeholder="confirm_password" >
+                
+                <br><br>
+                <input type="submit"  id="log" value="Change Password">
+                <br><br>              
+            </form>
+        </div>
+    </body>
+<script>
+    $(".toggle-password").click(function() {
+
+$(this).toggleClass("fa-eye fa-eye-slash");
+var input = $($(this).attr("toggle"));
+if (input.attr("type") == "password") {
+  input.attr("type", "text");
+} else {
+  input.attr("type", "password");
+}
+});
+</script>
+</html>

@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en" class="h-100">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>ERP system</title>
+<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/icon.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/main.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
+<link rel="stylesheet"  type="text/css" href="{{url_for('static',filename='css/buyerSupplier.css')}}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="shortcut icon" href="{{ url_for('static', filename='images/babu.jpg') }}">
+<body class="overlay-scrollbar">
+
+    <!-- ############  nav_sidemodal ############# -->
+    {% include 'Nav_sidemodal.html' %}
+    <!-- ############ End  nav_sidemodal ############# -->
+{% for row in edit %}
+	<div class="wrapper" id="wh">
+		<div class="nm"><p>{{row.c_name}}</p></div>
+        <div class="sec1">
+            <div class="ttl"><span>Company Details</span></div>
+            <div class="con1">
+                <div class="cont1">
+                    <table>
+                        <tr class="ctyp">
+                            <td>Company Type :</td>
+                            <td><b>{{row.type}}</b></td>
+                        </tr>
+                        <tr class="gstn">
+                            <td>GSTIN :</td>
+                            <td><b>{{row.gst_in}}</b></td>
+                            <td>Regular</td>
+                        </tr>
+                        <tr class="rfid">
+                            <td>Reference ID :</td>
+                        </tr>
+                    </table>
+                        <div class="hd">
+                            Contact Detail
+                        </div>
+                    <table>
+                        <tr class="eml">
+                            <td style="width: 10px;"><i class="fa fa-envelope"></i></td>
+                            <td>{{row.c_email}}</td>
+                        </tr>
+                        <tr class="phn">
+                            <td><i class="fa fa-phone"></i></td>
+                            <td>{{row.mobile}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="cont2">
+                    <div class="m">
+                        <img src="{{url_for('static',filename='images/user.svg')}}" alt="" class="mg">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sec12">
+            <div class="ttl"><span>Address And Contact Person Details</span></div>
+            <div class="con1">
+                <div class="cont2">
+                    <table>
+                        <tr class="phn">
+                            <td><i class="fa fa-user"></i></td>
+                            <td>{{row.address1}}</td><td>{{row.address2}}</td><td>{{row.pin}}</td>
+                        </tr>
+                        <tr class="eml">
+                            <td style="width: 10px;"><i class="fa fa-envelope"></i></td>
+                            <td>{{row.state}}</td>
+                        </tr>
+                        <tr class="phn">
+                            <td><i class="fa fa-phone"></i></td>
+                            <td>{{row.country}}</td>
+                        </tr>
+                    </table>
+                    <hr>
+                    <table>
+                        Contact Person
+                        <tr class="phn">
+                            <td><i class="fa fa-user"></i></td>
+                            <td>{{row.name}}</td>
+                        </tr>
+                        <tr class="eml">
+                            <td style="width: 10px;"><i class="fa fa-envelope"></i></td>
+                            <td>{{row.email}}</td>
+                        </tr>
+                        <!-- <tr class="phn">
+                            <td><i class="fa fa-phone"></i></td>
+                            <td>9874563210</td>
+                        </tr> -->
+                    </table>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="sec2">
+            <div class="ttl"><span>Delivery Locations</span></div>
+            <div class="con1">
+                <div class="cont3">
+                    <ul>
+                        <li>Lorem, ipsum dolor.</li>
+                        <li>Lorem ipsum dolor sit amet.</li>
+                        <li>Lorem, ipsum.</li>
+                        <li>Lorem.</li>
+                        <li>Lorem, ipsum.</li>
+                        <li>Lorem.</li>
+                    </ul>
+                    <hr>
+                    <ul>
+                        <li>Lorem, ipsum dolor.</li>
+                        <li>Lorem ipsum dolor sit amet.</li>
+                        <li>Lorem, ipsum.</li>
+                        <li>Lorem.</li>
+                        <li>Lorem, ipsum.</li>
+                        <li>Lorem.</li>
+                    </ul>
+                    <hr>
+                    <ul>
+                        <li>Lorem, ipsum dolor.</li>
+                        <li>Lorem ipsum dolor sit amet.</li>
+                        <li>Lorem, ipsum.</li>
+                        <li>Lorem.</li>
+                        <li>Lorem, ipsum.</li>
+                        <li>Lorem.</li>
+                    </ul>
+                    <hr>
+                    <ul>
+                        <li>Lorem, ipsum dolor.</li>
+                        <li>Lorem ipsum dolor sit amet.</li>
+                        <li>Lorem, ipsum.</li>
+                        <li>Lorem.</li>
+                        <li>Lorem, ipsum.</li>
+                        <li>Lorem.</li>
+                    </ul>
+                    <hr>
+                    <ul>
+                        <li>Lorem, ipsum dolor.</li>
+                        <li>Lorem ipsum dolor sit amet.</li>
+                        <li>Lorem, ipsum.</li>
+                        <li>Lorem.</li>
+                        <li>Lorem, ipsum.</li>
+                        <li>Lorem.</li>
+                    </ul>
+                    <hr>
+                    <ul>
+                        <li>Lorem, ipsum dolor.</li>
+                        <li>Lorem ipsum dolor sit amet.</li>
+                        <li>Lorem, ipsum.</li>
+                        <li>Lorem.</li>
+                        <li>Lorem, ipsum.</li>
+                        <li>Lorem.</li>
+                    </ul>
+                    <hr>
+                    <ul>
+                        <li>Lorem, ipsum dolor.</li>
+                        <li>Lorem ipsum dolor sit amet.</li>
+                        <li>Lorem, ipsum.</li>
+                        <li>Lorem.</li>
+                        <li>Lorem, ipsum.</li>
+                        <li>Lorem.</li>
+                    </ul>
+                    <hr><ul>
+                        <li>Lorem, ipsum dolor.</li>
+                        <li>Lorem ipsum dolor sit amet.</li>
+                        <li>Lorem, ipsum.</li>
+                        <li>Lorem.</li>
+                        <li>Lorem, ipsum.</li>
+                        <li>Lorem.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="sec2">
+            <div class="ttl"><span>Billing Address</span></div>
+            <div class="con1">
+                <div class="cont3">
+                    <ul>
+                        <li>Lorem, ipsum dolor.</li>
+                        <li>Lorem ipsum dolor sit amet.</li>
+                        <li>Lorem, ipsum.</li>
+                        <li>Lorem.</li>
+                        <li>Lorem, ipsum.</li>
+                        <li>Lorem.</li>
+                    </ul>
+                    <hr>
+                    <ul>
+                        <li>Lorem, ipsum dolor.</li>
+                        <li>Lorem ipsum dolor sit amet.</li>
+                        <li>Lorem, ipsum.</li>
+                        <li>Lorem.</li>
+                        <li>Lorem, ipsum.</li>
+                        <li>Lorem.</li>
+                    </ul>
+                    <hr>
+                    <ul>
+                        <li>Lorem, ipsum dolor.</li>
+                        <li>Lorem ipsum dolor sit amet.</li>
+                        <li>Lorem, ipsum.</li>
+                        <li>Lorem.</li>
+                        <li>Lorem, ipsum.</li>
+                        <li>Lorem.</li>
+                    </ul>
+                    <hr>
+                    <ul>
+                        <li>Lorem, ipsum dolor.</li>
+                        <li>Lorem ipsum dolor sit amet.</li>
+                        <li>Lorem, ipsum.</li>
+                        <li>Lorem.</li>
+                        <li>Lorem, ipsum.</li>
+                        <li>Lorem.</li>
+                    </ul>
+                    <hr>
+                    <ul>
+                        <li>Lorem, ipsum dolor.</li>
+                        <li>Lorem ipsum dolor sit amet.</li>
+                        <li>Lorem, ipsum.</li>
+                        <li>Lorem.</li>
+                        <li>Lorem, ipsum.</li>
+                        <li>Lorem.</li>
+                    </ul>
+                    <hr>
+                    <ul>
+                        <li>Lorem, ipsum dolor.</li>
+                        <li>Lorem ipsum dolor sit amet.</li>
+                        <li>Lorem, ipsum.</li>
+                        <li>Lorem.</li>
+                        <li>Lorem, ipsum.</li>
+                        <li>Lorem.</li>
+                    </ul>
+                    <hr>
+                    <ul>
+                        <li>Lorem, ipsum dolor.</li>
+                        <li>Lorem ipsum dolor sit amet.</li>
+                        <li>Lorem, ipsum.</li>
+                        <li>Lorem.</li>
+                        <li>Lorem, ipsum.</li>
+                        <li>Lorem.</li>
+                    </ul>
+                    <hr><ul>
+                        <li>Lorem, ipsum dolor.</li>
+                        <li>Lorem ipsum dolor sit amet.</li>
+                        <li>Lorem, ipsum.</li>
+                        <li>Lorem.</li>
+                        <li>Lorem, ipsum.</li>
+                        <li>Lorem.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="sec3">
+            <div class="ttl">
+                <span>Tags</span>
+                <div class="bn">
+                    <button class="b2"><i class="fa fa-plus"></i> Add</button>
+                    <button class="b1"><i class="fa fa-edit"></i> Edit</button>
+                </div>
+            </div>
+            <div class="con1">
+                <div class="cont4">
+                    
+                </div>
+            </div>
+        </div>
+        <div class="sec3">
+            <div class="ttl">
+                <span>Opening Balance</span>
+            </div>
+            <div class="con1">
+                <div class="cont2">
+                    <table>
+                        <tr class="phn">
+                            <td style="width: 20%;">Date</td>
+                            <td style="width: 40%;">Comment</td>
+                            <td style="width: 25%;">Payables</td>
+                            <td style="width: 15%;">Receivables</td>
+                        </tr>
+                    </table>
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <div class="sec4">
+            <div class="ttl">
+                <span>Company Settings</span>
+                <div class="bn">
+                    <button class="b2"><i class="fa fa-save"></i> Save</button>
+                </div>
+            </div>
+            <div class="con1">
+                <div class="cont2">
+                    <table>
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr class="phn">
+                            <td style="width: 20%;">TCS:</td>
+                            <td style="width: 80%;">
+                                <form action="">
+                                    <select name="" id="sel">
+                                        <option value="none">None</option>
+                                        <option value="purchase">Purchase</option>
+                                        <option value="sale">Sale</option>
+                                        <option value="both">Both</option>
+                                    </select>
+                                </form>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+	</div>
+</body>
+<script src="{{url_for('static',filename='js/script2.js')}}"></script>
+</html>

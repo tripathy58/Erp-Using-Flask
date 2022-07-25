@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en" class="h-100">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Employee Details</title>
+<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/icon.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/main.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/form.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/popup.css')}}">
+<link rel="shortcut icon" href="{{ url_for('static', filename='images/babu.jpg') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css"/>
+
+
+<style>
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modal-content {
+       background-color: #fff;
+       margin: auto;
+       padding: 10px;
+       border: 3px solid rgb(51, 90, 218);
+       border-radius: 10px;
+       width: 50%;
+   }
+.search{
+	height: 30px;
+	width: 12%;
+	border: 3px solid blue;
+	border-radius: 5px;
+	margin-right: 10px;
+	/* margin-bottom: -180px; */
+}
+	</style>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<body class="overlay-scrollbar">
+	<!-- ############  nav_sidemodal ############# -->
+	   {% include 'Nav_sidemodal.html' %}
+		<!-- ############ End  nav_sidemodal ############# -->
+
+	<div class="wrapper">
+
+		<div class="head-title">
+			<div class="left">
+			</div>
+		</div>
+<!-- ------------------------------------Update Stock Modal--------------------------------------- -->
+			<div>
+			  <div class="modal-content">
+				<center><h3>Edit Employee Details</h3></center>
+			   <div class="table-responsive">
+				<div class="content">
+					<form action="" method="post">
+						
+						{% for row in edit %}
+						<div class="user-details">
+							<div class="input-box">
+								<span class="details">Employee Name *</span>
+								<input name="name" type="text" value="{{row.name}}" placeholder="Employee Name" >
+							</div>
+							<div class="input-box">
+								<span class="details">Employee Address</span>
+								<input  name="address" type="text" value="{{row.address}}" placeholder="Employee Adress" >
+							</div>
+							<div class="input-box">
+								<span class="details">Employee Phone Number</span>
+								<input name="phone" type="number" value="{{row.phone}}" placeholder="Employee Phone No" >
+							</div>
+							<div class="input-box">
+								<span class="details">Employee Emergency Contact No</span>
+								<input name="emergency_phone" type="number" value="{{row.emergency_phone}}" placeholder="Emergency Contact" >
+							</div>
+							<div class="input-box">
+								<span class="details">Date Of Birth</span>
+								<input name="dob" type="date" value="{{row.dob}}" placeholder="D.O.B" >
+							</div>
+							<div class="input-box">
+								<span class="details">Job Title</span>
+								<input name="job_title" type="text" value="{{row.job_title}}" placeholder="Job Title" >
+							</div>
+							<div class="input-box">
+								<span class="details">Manager's Name</span>
+								<input name="manager_name" type="text" value="{{row.manager_name}}" placeholder="Manager's Name">
+							</div>
+							<div class="input-box">
+								<span class="details">Department</span>
+								<select name="department" value="{{row.department}}">
+									<option value="{{row.department}}" hidden>{{row.department}}</option>
+									<option>Sales</option>
+									<option>Production</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+								</select>
+							</div>
+							<div class="input-box">
+								<span class="details">Hired Date</span>
+								<input name="hired_date" type="date" value="{{row.hired_date}}" placeholder="Country-Party Code">
+							</div>
+							<div class="input-box">
+								<span class="details">Current Salary</span>
+								<input name="salary" type="number" value="{{row.salary}}" placeholder="Current Salary">
+							</div>
+							<div class="input-box">
+								<span class="details">Qualification</span>
+								<input name="qualification" type="text" value="{{row.qualification}}" placeholder="Qualification">
+							</div>
+							<div class="input-box">
+								<span class="details">Employee Status</span>
+								<select name="status" value="{{row.status}}">
+									<option value="{{row.status}}">Full-Time</option>
+									<option>Part-Time</option>
+									<option>Contract</option>
+				
+								</select>
+							</div>
+							
+						</div>
+						<div class="button">
+							<input type="submit" value="Update" onclick="return confirm('Press OK to confirm Update.')">
+						</div>
+						{% endfor %}
+						
+					</form>
+					
+				</div>
+			</div>
+			  </div>
+			</div>
+				  <!-- #################   end update stock modal table ################# -->
+
+<script src="{{url_for('static',filename='js/script2.js')}}"></script>
+</html>
